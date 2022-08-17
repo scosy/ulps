@@ -23,6 +23,9 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 
+gem "bootstrap"
+gem "sassc-rails"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
