@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   get 'public/index'
   get 'public/privacy'
   get 'public/conditions'
+
+  get "checkout", to: "checkouts#show"
+  get "billing", to: "billing#show"
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
