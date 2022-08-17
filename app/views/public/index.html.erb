@@ -3,7 +3,7 @@
 
 <% if current_user %>
     <%= image_tag current_user.avatar_url %>
-    <p>Hello, <%= current_user.full_name %></p>
+    <p>Hello, <%= current_user.name %></p>
     <p>Your email is <%= current_user.email %></p>
     <%= link_to "Edit your profile", edit_user_registration_path %>
     <%= button_to "Sign out", destroy_user_session_path, data: { turbo: "false" }, method: :delete %>

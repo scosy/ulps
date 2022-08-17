@@ -26,6 +26,11 @@ gem "omniauth-rails_csrf_protection"
 gem "bootstrap"
 gem "sassc-rails"
 
+gem "pay"
+gem "stripe"
+
+gem "sidekiq"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
