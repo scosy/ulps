@@ -1,2 +1,2 @@
-web: bundle exec puma -C config/puma.rb
-worker: bundle exec sidekiq -q default -q mailers
+web: rails server -p ${PORT:-5000} -e $RAILS_ENV
+worker: sidekiq -q default -q mailers -e $RAILS_ENV
