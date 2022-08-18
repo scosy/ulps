@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'public/conditions'
 
   get "checkout", to: "checkouts#show"
+  get "checkout/success", to: "checkouts#success"
+  get "checkout/cancel", to: "checkouts#cancel"
+
   get "billing", to: "billing#show"
 
   devise_for :users, controllers: {
@@ -11,8 +14,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  
   root "public#index"
 end
