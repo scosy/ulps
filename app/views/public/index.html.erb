@@ -1,14 +1,51 @@
-<h1>Public#index</h1>
-<p>Find me in app/views/public/index.html.erb</p>
+<section class="position-relative pb-5">
+  <img class="d-none d-lg-block position-absolute top-0 start-0 bottom-0 w-50 h-100 img-fluid" style="object-fit: cover;" src="https://static.shuffle.dev/uploads/files/69/69d27488d894a1711c2b90eeca69bbddd3736871/IMG-2075-1.jpeg" alt="">
+  <div class="position-relative">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4">
+      <div class="container">
+        <a class="d-none d-lg-block navbar-brand" href="#">
+            <%= image_tag "logo_text_white.png", class: "img-fluid", width: "96px" %>
+        </a>
+        <a class="d-lg-none navbar-brand" href="#">
+            <%= image_tag "logo_text.png", class: "img-fluid", width: "96px" %>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header02" aria-controls="header02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="header02">
+          <ul class="navbar-nav ms-auto mt-3 mt-lg-0 mb-3 mb-lg-0 me-4">
+            <li class="nav-item me-4">
+                <%= link_to "Voir tous les livres", "books_path", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Obtenir un livre gratuit", checkout_path, class: "nav-link" %>
+            </li>
+          </ul>
+          <div>
+            <%= link_to "Se connecter", new_user_session_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row pt-5" contenteditable="false">
+        <div class="col-12 col-lg-5 ms-auto">
+          <div class="mb-5">
+            <h2 class="display-4 fw-bold mb-5" contenteditable="false">L'essentiel d'un nouveau bouquin chaque semaine</h2>
+            <p class="lead text-muted mb-5">Accède à un condensé de ma selection des meilleurs livres sur ces 5 thèmes: la spiritualité, la psychologie, les finances, la productivité et la philosophie.</p>
+            <div class="d-flex flex-wrap">
+                <%= link_to "30 jours d'essai gratuit", checkout_path, class: "btn btn-primary me-2 mb-2 mb-sm-0 btn-lg" %>
+            </div>
+            <p class="text-muted mt-2"><small>5,95 €/mois après 30 jours. Résiliez quand vous voulez.</small></p>
 
-<% if current_user %>
-    <%= image_tag current_user.avatar_url %>
-    <p>Hello, <%= current_user.name %></p>
-    <p>Your email is <%= current_user.email %></p>
-    <%= link_to "Edit your profile", edit_user_registration_path %>
-    <%= button_to "Sign out", destroy_user_session_path, data: { turbo: "false" }, method: :delete %>
-<% else %>
-    <p>Hello, stranger</p>
-    <%= link_to "Sign in", new_user_session_path %>
-    <%= link_to "Sign up", new_user_registration_path %>
-<% end %>
+          </div>
+          <div class="row align-items-center pt-5">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5">
+                <%= image_tag "stripe.png", class: "d-inline-block img-fluid" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+<footer class="py-5">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between border-bottom">
+      <div class="mb-5">
+        <a class="d-inline-block" href="#">
+            <%= image_tag "logo_text.png", class: "img-fluid", width: "96px" %>
+        </a>
+      </div>
+      <div>
+        <ul class="list-unstyled d-flex flex-wrap align-items-center">
+          <li class="me-4"><%= link_to "Accueil", root_path, class: "link-secondary" %></li>
+          <li class="me-4"><%= link_to "Conditions", public_conditions_path, class: "link-secondary" %></li>
+          <li class="me-4"><%= link_to "Confidentialité", public_privacy_path, class: "link-secondary" %></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="mb-5"></div>
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      <p contenteditable="false">Tous droits réservés © ULPS, JMG HARRY 2022</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light py-4">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+    <%= image_tag "logo_text.png", class: "img-fluid", width: "96px" %>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav09" aria-controls="nav09" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav09">
+      <ul class="navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 ms-lg-auto me-4">
+        <li class="nav-item me-4"><%= link_to "Voir tous les livres", "books_path", class: "nav-link" %></li>
+      </ul>
+      <div>
+        <%= link_to "Me connecter", new_user_session_path, class: "btn btn-outline-secondary me-2" %>
+        <%= link_to "30 jours d'essai gratuit", new_user_registration_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+  </div>
+</nav>
