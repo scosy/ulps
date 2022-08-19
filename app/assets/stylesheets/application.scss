@@ -2,29 +2,6 @@ $primary: #ffc107;
 
 @import "bootstrap";
 
-*, *:before, *:after {box-sizing:  border-box !important;}
-
-
-.row {  
- -moz-column-width: 18em;
- -webkit-column-width: 18em;
-  column-width: 18em;
- -moz-column-gap: 1em;
- -webkit-column-gap: 1em; 
-  column-gap: 1em;  
-}
-
-.item {
- display: inline-block;
- padding:  .25rem;
- width:  100%; 
-}
-
-.well {
- position:relative;
- display: block;
-}
-
 .ulps_rounded {
 
     border-radius:  50px;

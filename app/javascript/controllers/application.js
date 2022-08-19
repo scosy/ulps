@@ -9,10 +9,13 @@ window.Stimulus   = application
 export { application }
 
 document.addEventListener("turbo:load", function() {
-    var grid = document.querySelector('.episodes');
-    var msnry = new Masonry( grid, {
-        itemSelector: '.episode',
-        percentPosition: true
-  });
+    // Only if .episodes is present on the page
+    if (document.querySelector(".episodes")) {
+        var grid = document.querySelector('.episodes');
+        var msnry = new Masonry( grid, {
+            itemSelector: '.episode',
+            percentPosition: true
+        });
+    }
 })
   

@@ -1,10 +1,66 @@
-<p style="color: green"><%= notice %></p>
+<section class="position-relative pb-5">
+  <img class="d-lg-block position-absolute top-0 start-0 bottom-0 w-100 h-100 img-fluid" style="object-fit: cover;" src="https://static.shuffle.dev/uploads/files/69/69d27488d894a1711c2b90eeca69bbddd3736871/IMG-2075-1.jpeg" alt="">
+  <div class="position-relative">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4">
+      <div class="container">
+        <a class="d-none d-lg-block navbar-brand" href="#">
+            <img class="img-fluid" width="96px" src="/assets/logo_text_white-8f842509a4c63e19910a1fec33daa781b881719ecd628bf0124c49c097f271a6.png">
+        </a>
+        <a class="d-lg-none navbar-brand" href="#">
+            <img class="img-fluid" width="96px" src="/assets/logo_text-86a07fb7bcacd8aee791529bf4048240b1860c8cd5ff4f9133b88e1fce73209e.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header02" aria-controls="header02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="header02">
+          <ul class="navbar-nav ms-auto mt-3 mt-lg-0 mb-3 mb-lg-0 me-4">
+            <li class="nav-item me-4">
+                <a class="nav-link" href="/episodes">Voir tous les livres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/checkout">Obtenir un livre gratuit</a>
+            </li>
+          </ul>
+          <div>
+            <a class="btn btn-primary" href="/users/sign_in">Se connecter</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row pt-5" contenteditable="false">
+        <div class="col-sm-12 col-lg-5 ms-auto">
+          <div class="mb-5">
+            <h2 class="display-4 fw-bold mb-5" contenteditable="false">L'essentiel d'un nouveau bouquin chaque semaine</h2>
+            <p class="lead text-muted mb-5">Accède à un condensé de ma selection des meilleurs livres sur ces 5 thèmes: la spiritualité, la psychologie, les finances, la productivité et la philosophie.</p>
+            <div class="d-flex flex-wrap">
+                <a class="btn btn-primary me-2 mb-2 mb-sm-0 btn-lg" href="/checkout">30 jours d'essai gratuit</a>
+            </div>
+            <p class="text-muted mt-2"><small>5,95 €/mois après 30 jours. Résiliez quand vous voulez.</small></p>
 
-<%= render @episode %>
+          </div>
+          <div class="row align-items-center pt-5">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5">
+                <img class="d-inline-block img-fluid" src="/assets/stripe-f93e0ba428838f62b18fef6b29ff6a8a9cf270f09e9e0079e9c60f5244f321d6.png">
+            </div>
+          </div>
+        </div><div class="col-sm-12 col-lg-5 ms-auto">
+          <div class="mb-5">
+            <h2 class="display-4 fw-bold mb-5" contenteditable="false">L'essentiel d'un nouveau bouquin chaque semaine</h2>
+            <p class="lead text-muted mb-5">Accède à un condensé de ma selection des meilleurs livres sur ces 5 thèmes: la spiritualité, la psychologie, les finances, la productivité et la philosophie.</p>
+            <div class="d-flex flex-wrap">
+                <a class="btn btn-primary me-2 mb-2 mb-sm-0 btn-lg" href="/checkout">30 jours d'essai gratuit</a>
+            </div>
+            <p class="text-muted mt-2"><small>5,95 €/mois après 30 jours. Résiliez quand vous voulez.</small></p>
 
-<div>
-  <%= link_to "Edit this episode", edit_episode_path(@episode) %> |
-  <%= link_to "Back to episodes", episodes_path %>
-
-  <%= button_to "Destroy this episode", @episode, method: :delete %>
-</div>
+          </div>
+          <div class="row align-items-center pt-5">
+            <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5">
+                <img class="d-inline-block img-fluid" src="/assets/stripe-f93e0ba428838f62b18fef6b29ff6a8a9cf270f09e9e0079e9c60f5244f321d6.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
