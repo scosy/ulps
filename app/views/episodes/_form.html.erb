@@ -1,0 +1,52 @@
+<%= form_with(model: episode) do |form| %>
+  <% if episode.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(episode.errors.count, "error") %> prohibited this episode from being saved:</h2>
+
+      <ul>
+        <% episode.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :book_id, style: "display: block" %>
+    <%= form.number_field :book_id %>
+  </div>
+
+  <div>
+    <%= form.label :creator_id, style: "display: block" %>
+    <%= form.number_field :creator_id %>
+  </div>
+
+  <div>
+    <%= form.label :duration, style: "display: block" %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div>
+    <%= form.label :affiliate_link, style: "display: block" %>
+    <%= form.text_field :affiliate_link %>
+  </div>
+
+  <div>
+    <%= form.label :mp3_url, style: "display: block" %>
+    <%= form.text_field :mp3_url %>
+  </div>
+
+  <div>
+    <%= form.label :preview_url, style: "display: block" %>
+    <%= form.text_field :preview_url %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

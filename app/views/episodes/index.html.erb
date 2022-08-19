@@ -1,0 +1,25 @@
+<section class="py-5">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 col-lg-8 col-xxl-7 text-center mx-auto">
+        <span class="text-muted" contenteditable="false">ULPS</span>
+        <h2 class="display-5 fw-bold mt-2 mb-3" contenteditable="false">Tous les épisodes ULPS</h2>
+        <p class="lead text-muted" contenteditable="false">Découvre un nouveau résumé ici chaque semaine.</p>
+      </div>
+    </div>
+    <div class="row my-5 episodes" data-masonry='{"percentPosition": true }'>
+        <% @episodes.each do |episode| %>
+          <div class="episode col-sm-4 col-lg-3 mb-4">
+            <div class="card ulps_rounded">
+              <%= link_to "#" do %>
+                <%= image_tag "#{episode.book.image_url}", class: "bd-placeholder-img card-img-top" %>
+              <% end %>
+              <span class="ulps_badge badge rounded-pill bg-info text-dark">Bientôt</span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="text-center"><a class="btn btn-primary" href="#">View More Articles</a></div>
+  </div>
+</section>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :episodes
+  resources :books
   get 'public/index'
   get 'public/privacy'
   get 'public/conditions'
