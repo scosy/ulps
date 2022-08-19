@@ -1,18 +1,23 @@
-$primary: #ffc107;
+$primary: #cfabff;
 
 @import "bootstrap";
 
-.ulps_rounded {
+a {
+  color: #0274B6;
+  text-decoration: none;
+  &:hover {
+	text-decoration: underline;
+	color: #0274B6;
+  }
+}
 
-    border-radius:  50px;
-    .card-img-top {
-        border-radius:  50px;
-    }
-    .ulps_badge {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        --bs-badge-padding-x: 2em;
-        --bs-badge-padding-y: 1em;
-    }
+.creator_thumbnail {
+	display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+
+	img {
+		transform: scale(1.5);
+   		width: 100%;
+	}
 }

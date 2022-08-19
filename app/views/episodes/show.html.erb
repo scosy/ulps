@@ -1,13 +1,12 @@
-<section class="position-relative pb-5">
-  <img class="d-lg-block position-absolute top-0 start-0 bottom-0 w-100 h-100 img-fluid" style="object-fit: cover;" src="https://static.shuffle.dev/uploads/files/69/69d27488d894a1711c2b90eeca69bbddd3736871/IMG-2075-1.jpeg" alt="">
+<section class="position-relative">
   <div class="position-relative">
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4">
       <div class="container">
         <a class="d-none d-lg-block navbar-brand" href="#">
-            <img class="img-fluid" width="96px" src="/assets/logo_text_white-8f842509a4c63e19910a1fec33daa781b881719ecd628bf0124c49c097f271a6.png">
+          <%= image_tag "logo_text.png", class: "img-fluid", width: "96px" %>
         </a>
         <a class="d-lg-none navbar-brand" href="#">
-            <img class="img-fluid" width="96px" src="/assets/logo_text-86a07fb7bcacd8aee791529bf4048240b1860c8cd5ff4f9133b88e1fce73209e.png">
+          <%= image_tag "logo_text.png", class: "img-fluid", width: "96px" %>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header02" aria-controls="header02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -28,37 +27,68 @@
       </div>
     </nav>
     <div class="container">
-      <div class="row pt-5" contenteditable="false">
+      <div class="row pt-5">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Tous les livres</a></li>
+            <li class="breadcrumb-item active"><%= link_to @episode.book.categories.first.name, "category_path(@episode.book.category)" %></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="row pt-4">
+        <div class="col-sm-12 col-lg-3 ms-auto">
+          <div class="mb-4" style="width: fit-content">
+            <%= image_tag @episode.book.image_url, class: "img-fluid rounded-3 mb-1", width: "232px" %>
+            <div class="d-grid gap-2">
+              <a class="btn btn-secondary" href="/checkout">▶ Extrait</a>
+            </div>
+          </div>
+        </div>
         <div class="col-sm-12 col-lg-5 ms-auto">
           <div class="mb-5">
-            <h2 class="display-4 fw-bold mb-5" contenteditable="false">L'essentiel d'un nouveau bouquin chaque semaine</h2>
-            <p class="lead text-muted mb-5">Accède à un condensé de ma selection des meilleurs livres sur ces 5 thèmes: la spiritualité, la psychologie, les finances, la productivité et la philosophie.</p>
-            <div class="d-flex flex-wrap">
-                <a class="btn btn-primary me-2 mb-2 mb-sm-0 btn-lg" href="/checkout">30 jours d'essai gratuit</a>
-            </div>
-            <p class="text-muted mt-2"><small>5,95 €/mois après 30 jours. Résiliez quand vous voulez.</small></p>
-
+            <h2 class="display-6 fw-bold"><%= @episode.book.title %></h2>
+            <div class="mb-4 lead text-muted"><%= @episode.book.subtitle %></div>
+            <div>Auteur: <%= @episode.book.author %></div>
+            <div>Durée: <%= @episode.duration / 60 %> minutes</div>
+            <div>Catégorire: <%= link_to @episode.book.categories.first.name, "category_path(@episode.book.category)" %></div>
           </div>
-          <div class="row align-items-center pt-5">
-            <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5">
-                <img class="d-inline-block img-fluid" src="/assets/stripe-f93e0ba428838f62b18fef6b29ff6a8a9cf270f09e9e0079e9c60f5244f321d6.png">
-            </div>
-          </div>
-        </div><div class="col-sm-12 col-lg-5 ms-auto">
+        </div>
+        <div class="col-sm-12 col-lg-4 ms-auto">
           <div class="mb-5">
-            <h2 class="display-4 fw-bold mb-5" contenteditable="false">L'essentiel d'un nouveau bouquin chaque semaine</h2>
-            <p class="lead text-muted mb-5">Accède à un condensé de ma selection des meilleurs livres sur ces 5 thèmes: la spiritualité, la psychologie, les finances, la productivité et la philosophie.</p>
-            <div class="d-flex flex-wrap">
-                <a class="btn btn-primary me-2 mb-2 mb-sm-0 btn-lg" href="/checkout">30 jours d'essai gratuit</a>
+            <div class="d-grid gap-2">
+                <a class="btn btn-primary me-2 mb-2 mb-sm-0" href="/checkout">0,00 € avec l'offre d'essai</a>
             </div>
-            <p class="text-muted mt-2"><small>5,95 €/mois après 30 jours. Résiliez quand vous voulez.</small></p>
-
+            <p class="text-muted mt-2" style="font-size: small">5,95 €/mois après 30 jours. Résiliation libre.</p>
           </div>
-          <div class="row align-items-center pt-5">
-            <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5">
-                <img class="d-inline-block img-fluid" src="/assets/stripe-f93e0ba428838f62b18fef6b29ff6a8a9cf270f09e9e0079e9c60f5244f321d6.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="position-relative pb-5">
+  <div class="container">
+    <div class="row pt-4">
+      <div class="col-sm-12 col-lg-8">
+        <div class="mb-5">
+          <div class="row">
+            <div class="col-sm-12 col-lg-auto">
+              <div class="creator_thumbnail img-thumbnail" style="width: 80px;height: 80px; border-width: 5px;">
+                <%= image_tag "harry_thumbnail.png" %>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-8">
+              <div class="text-muted">"Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous"</div>
+              <div class="mb-4 text-muted">- Harry Jmg</div>
             </div>
           </div>
+          <h4 class="fw-bold mb-2 mt-5">Notes de Harry</h4>
+          <div class="mb-4 text-muted">Essaie ULPS pour avoir accès aux notes personnelles de Harry.</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="mb-5">
+          <h4 class="fw-bold">Commentaires</h4>
+          <div class="mb-4 text-muted"><%= @episode.notes %></div>
         </div>
       </div>
     </div>
