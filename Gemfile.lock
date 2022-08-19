@@ -142,8 +142,6 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
-    masonry-rails (0.2.4)
-      railties
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
@@ -315,7 +313,6 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   letter_opener
-  masonry-rails
   omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
