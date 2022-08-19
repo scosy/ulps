@@ -13,4 +13,8 @@ class User < ApplicationRecord
       user.avatar_url = auth.info.image
     end
   end
+
+  def subscribed?
+    payment_processor.subscribed?
+  end
 end

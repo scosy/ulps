@@ -2,13 +2,15 @@ $primary: #cfabff;
 
 @import "bootstrap";
 
-a {
-  color: #0274B6;
-  text-decoration: none;
-  &:hover {
-	text-decoration: underline;
-	color: #0274B6;
-  }
+.breadcrumb, .episode_categories {
+	a {
+	  color: #0274B6;
+	  text-decoration: none;
+	  &:hover {
+		text-decoration: underline;
+		color: #0274B6;
+	  }
+	}
 }
 
 .creator_thumbnail {
@@ -20,4 +22,26 @@ a {
 		transform: scale(1.5);
    		width: 100%;
 	}
+}
+
+.pulse-image {
+    animation: pulse 1.3s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(140, 140, 140, 0.4);
+    }
+    5% {
+        transform: scale(1.01);
+    }
+    15% {
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(168, 63, 57, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 30px rgba(168, 63, 57, 0);
+    }
 }

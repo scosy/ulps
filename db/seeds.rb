@@ -45,6 +45,7 @@ episodes = [
         book: Book.find_by(title: "Le pouvoir du moment présent"),
         duration: 2580,
         notes: "This is my notes",
+        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
         preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
@@ -52,6 +53,7 @@ episodes = [
         book: Book.find_by(title: "Deep Work"),
         duration: 2580,
         notes: "This is my notes",
+        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
         preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
@@ -59,6 +61,7 @@ episodes = [
         book: Book.find_by(title: "La lecture rapide"),
         duration: 2580,
         notes: "This is my notes",
+        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
         preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
@@ -66,6 +69,7 @@ episodes = [
         book: Book.find_by(title: "La vérité sur ce qui nous motive"),
         duration: 2580,
         notes: "This is my notes",
+        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
         preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
@@ -73,6 +77,7 @@ episodes = [
         book: Book.find_by(title: "The war of art"),
         duration: 2580,
         notes: "This is my notes",
+        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
         preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
@@ -80,6 +85,7 @@ episodes = [
         book: Book.find_by(title: "Le plus étrange des secrets"),
         duration: 2580,
         notes: "This is my notes",
+        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
         preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
@@ -87,6 +93,7 @@ episodes = [
         book: Book.find_by(title: "La physique de la conscience"),
         duration: 2580,
         notes: "This is my notes",
+        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
         preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
@@ -96,6 +103,7 @@ episodes = [
         book: episode[:book],
         duration: episode[:duration],
         notes: episode[:notes],
+        edito: episode[:edito],
         mp3_url: episode[:mp3_url],
         preview_url: episode[:preview_url],
         affiliate_link: episode[:affiliate_link]
