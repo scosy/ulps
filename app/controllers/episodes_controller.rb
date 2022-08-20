@@ -6,6 +6,11 @@ class EpisodesController < ApplicationController
     @episodes = Episode.all
   end
 
+  # GET /user_episodes
+  def user_episodes
+    @episodes = current_user.episodes
+  end
+
   # GET /episodes/1 or /episodes/1.json
   def show
     # Check if user has this episode

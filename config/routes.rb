@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'public/privacy'
   get 'public/conditions'
 
+  get "user_episodes", to: "episodes#user_episodes"
+
   get "checkout", to: "checkouts#show"
   get "checkout/success", to: "checkouts#success"
   get "checkout/cancel", to: "checkouts#cancel"
