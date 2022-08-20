@@ -17,5 +17,6 @@
     <%= render "partials/navbar" unless @disabled_nav %>
     <%= yield %>
     <%= render "partials/footer" %>
+    <%= console if Rails.env.development? %>
   </body>
 </html>

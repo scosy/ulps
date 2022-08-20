@@ -8,6 +8,10 @@ class EpisodesController < ApplicationController
 
   # GET /episodes/1 or /episodes/1.json
   def show
+    # Check if user has this episode
+    if current_user && current_user.episodes.include?(@episode)
+        @user_episode = UserEpisode.where(user_id: current_user.id, episode_id: @episode.id).first
+    end
   end
 
   # GET /episodes/new

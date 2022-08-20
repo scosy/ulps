@@ -5,6 +5,9 @@ class User < ApplicationRecord
 
   pay_customer default_payment_processor: :stripe
 
+  has_many :user_episodes, dependent: :destroy
+  has_many :episodes, through: :user_episodes
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

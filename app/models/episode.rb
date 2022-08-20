@@ -1,8 +1,6 @@
 class Episode < ApplicationRecord
     belongs_to :book
 
-    def price_str
-        (price / 100).to_s + "," + (price % 100).to_s.rjust(2, "0") + " €"
-    end
-
+    has_many :user_episodes, dependent: :destroy
+    has_many :users, through: :user_episodes
 end

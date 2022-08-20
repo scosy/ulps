@@ -1,14 +1,19 @@
 <div class="mb-5">
-    <% if current_user %>
-        <p>Prix: <%= @episode.price_str %><br>ou 1 crédit ULPS</p>
+    <% if @user_episode.present? %>
+        <p>Ajouté le : <br><span class="text-muted"><%= @user_episode.created_at.strftime("%d/%m/%Y") %></span></p>
+        <div class="d-grid gap-2">
+            <a class="btn btn-primary me-2 mb-2 mb-sm-0" href="/checkout">Écouter</a>
+        </div>
+    <% elsif current_user && current_user.subscribed? %>
+        <p>Prix: <%= price_str(@episode.price) %><br>ou 1 crédit ULPS</p>
         <div class="d-grid gap-2">
             <a class="btn btn-primary me-2 mb-2 mb-sm-0" href="/checkout">Acheter maintenant pour 1 crédit</a>
-            <a class="btn btn-secondary me-2 mb-2 mb-sm-0" href="/checkout">Acheter maintenant pour <%= @episode.price_str %></a>
+            <a class="btn btn-secondary me-2 mb-2 mb-sm-0" href="/checkout">Acheter maintenant pour <%= price_str(@episode.price) %></a>
         </div>
     <% else %>
         <div class="d-grid gap-2">
             <a class="btn btn-primary me-2 mb-2 mb-sm-0" href="/checkout">0,00 € avec l'offre d'essai</a>
         </div>
-        <p class="text-muted mt-2" style="font-size: small">5,95 €/mois après 30 jours. Résiliation libre.</p>
+        <p class="text-muted mt-2" style="font-size: small">5,95 €/mois après 30 jours. Résilie quand tu veux.</p>
     <% end %>
 </div>
