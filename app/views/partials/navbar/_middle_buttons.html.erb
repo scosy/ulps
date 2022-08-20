@@ -1,0 +1,9 @@
+<ul class="navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 ms-lg-auto me-4">
+    <li class="nav-item me-4">
+        <div class="nav-link">
+            <% if current_user %>
+                <b><%= current_user.available_credits %></b> crédits prêts
+            <% end %>
+        </div>
+    </li>
+</ul>
