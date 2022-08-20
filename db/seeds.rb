@@ -109,3 +109,9 @@ episodes = [
         affiliate_link: episode[:affiliate_link]
     )
 end
+
+# Give price to existing episodes
+Episode.all.each do |episode| episode.update(price: 500) end
+
+
+# Create users
