@@ -8,6 +8,19 @@
       </div>
       <div>
         <ul class="list-unstyled d-flex flex-wrap align-items-center">
+          <% if current_user %>
+            <li class="me-4">
+              <%= link_to "Edit Profile", edit_user_registration_path, class: "link-secondary" %>
+            </li>
+          <% end %>
+          <% if current_user && current_user.role == "admin" %>
+            <li class="me-4">
+              <%= link_to "Books", books_path, class: "link-danger" %>
+            </li>
+            <li class="me-4">
+              <%= link_to "Categories", categories_path, class: "link-danger" %>
+            </li>
+          <% end %>
           <li class="me-4"><%= link_to "Accueil", root_path, class: "link-secondary" %></li>
           <li class="me-4"><%= link_to "Conditions", public_conditions_path, class: "link-secondary" %></li>
           <li class="me-4"><%= link_to "Confidentialité", public_privacy_path, class: "link-secondary" %></li>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :episodes
   resources :books
   get 'public/index'
