@@ -8,7 +8,6 @@
         <p>Prix: <%= price_str(@episode.price) %><br>ou 1 crédit ULPS</p>
         <div class="d-grid gap-2">
             <a class="btn btn-primary me-2 mb-2 mb-sm-0" href="/checkout">Acheter maintenant pour 1 crédit</a>
-            <a class="btn btn-secondary me-2 mb-2 mb-sm-0" href="/checkout">Acheter maintenant pour <%= price_str(@episode.price) %></a>
         </div>
     <% else %>
         <div class="d-grid gap-2">

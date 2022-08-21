@@ -1,3 +1,17 @@
-<h1>Checkout</h1>
-
-<%= render partial: "pay/stripe/checkout_button", locals: { session: @checkout_session, title: "Checkout" } %>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <span id="celebrate" class="text-muted" contenteditable="false">Waouh !</span>
+        <h2 class="display-5 fw-bold mt-2 mb-3" contenteditable="false">Champagne 🎉🥂</h2>
+        <p class="lead text-muted mb-4" contenteditable="false">
+            Un grand merci ! Profite de tes 3 crédits ULPS sans attendre.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center">
+            <%= link_to "Voir le catalogue", episodes_path, class: "btn btn-primary me-2 mb-2 mb-sm-0" %>
+            <%= link_to "Revenir à l'accueil", root_path, class: "btn btn-outline-secondary mb-2 mb-sm-0" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
