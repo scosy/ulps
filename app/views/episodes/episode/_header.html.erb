@@ -14,7 +14,10 @@
                 <div class="mb-4" style="width: fit-content; margin-left:auto; margin-right:auto">
                 <%= image_tag @episode.book.image_url, class: "img-fluid rounded-3 mb-3", width: "232px" %>
                 <div class="d-grid gap-2">
-                    <a class="btn btn-light" href="/checkout">▶ Extrait</a>
+                    <%= link_to "▶ Extrait", "#", onclick: "document.querySelector('#extract_player').style.display = 'block'; this.style.display = 'none'; return false;", class: "btn btn-light" %>
+                    <div id="extract_player" style="display: none;">
+                        <%= audio_tag @episode.mp3_url, controls: true, style: " width: -webkit-fill-available;" %>
+                    </div>
                 </div>
             </div>
         </div>

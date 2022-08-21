@@ -2,7 +2,10 @@
     <% if @user_episode.present? %>
         <p>Ajouté le : <br><span class="text-muted"><%= @user_episode.created_at.strftime("%d/%m/%Y") %></span></p>
         <div class="d-grid gap-2">
-            <a class="btn btn-primary me-2 mb-2 mb-sm-0" href="/checkout">Écouter</a>
+            <%= link_to "Écouter", "#", onclick: "document.querySelector('#audio_player').style.display = 'block'; this.style.display = 'none'; return false;", class: "btn btn-primary me-2 mb-2 mb-sm-0" %>
+            <div id="audio_player" style="display: none;">
+                <%= audio_tag @episode.mp3_url, controls: true %>
+            </div>
         </div>
     <% elsif current_user && current_user.subscribed? %>
         <p>Prix: <%= price_str(@episode.price) %><br>ou 1 crédit ULPS</p>
