@@ -9,5 +9,6 @@ pin "popper", to: 'popper.js', preload: true
 pin "bootstrap", to: 'bootstrap.min.js', preload: true
 
 pin "masonry-layout", to: 'https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js', preload: true
+pin "party", to: "https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js", preload: true
 
 pin_all_from "app/javascript/controllers", under: "controllers"

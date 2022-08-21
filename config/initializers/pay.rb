@@ -21,7 +21,8 @@ Pay.setup do |config|
     (price&.type == "recurring") && (price.recurring&.interval == "year")
   }
 
-  class ChargeProcessor
+  # Give credits to the user when they get charged
+  class InvoicePaidProcessor
     def call(event)
       checkout_session = event.data.object
       customer = Pay::Customer.find_by(processor_id: checkout_session.customer)
@@ -29,16 +30,6 @@ Pay.setup do |config|
       user.update(available_credits: user.available_credits + 1)
     end
   end
-  Pay::Webhooks.delegator.subscribe "stripe.charge.succeeded", ChargeProcessor.new
-  
-  class SubscriptionProcessor
-    def call(event)
-      checkout_session = event.data.object
-      customer = Pay::Customer.find_by(processor_id: checkout_session.customer)
-      user = customer.owner
-      user.update(available_credits: user.available_credits + 1)
-    end
-  end
-  Pay::Webhooks.delegator.subscribe "stripe.customer.subscription.created", SubscriptionProcessor.new
+  Pay::Webhooks.delegator.subscribe "stripe.invoice.paid", InvoicePaidProcessor.new
 
 end

@@ -35,7 +35,7 @@
               <p class="text-muted mt-2"><small>Connecté en tant que <%= current_user.name %></small></p>
             <% else %>
               <div class="d-flex flex-wrap">
-                  <%= link_to "30 jours d'essai gratuit", checkout_path, class: "btn btn-primary me-2 mb-2 mb-sm-0 btn-lg" %>
+                  <%= link_to "30 jours d'essai gratuit", checkout_membership_path, class: "btn btn-primary me-2 mb-2 mb-sm-0 btn-lg" %>
               </div>
               <p class="text-muted mt-2"><small>5,95 €/mois après 30 jours. Résiliez quand vous voulez.</small></p>
             <% end %>

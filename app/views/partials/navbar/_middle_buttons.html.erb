@@ -2,7 +2,7 @@
     <li class="nav-item me-4">
         <div class="nav-link">
             <% if current_user %>
-                <b><%= current_user.available_credits %></b> crédits prêts
+                <%= pluralize(current_user.available_credits, "crédit prêt", plural: "crédits prêts") %>
             <% end %>
         </div>
     </li>

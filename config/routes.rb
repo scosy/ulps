@@ -8,9 +8,13 @@ Rails.application.routes.draw do
 
   get "user_episodes", to: "episodes#user_episodes"
 
-  get "checkout", to: "checkouts#show"
-  get "checkout/success", to: "checkouts#success"
-  get "checkout/cancel", to: "checkouts#cancel"
+  get "checkout_membership", to: "checkouts#membership"
+  get "checkout_extra_credit", to: "checkouts#extra_credit"
+  get "checkout_pack_credits", to: "checkouts#pack_credits"
+  
+  get "checkout_membership_success", to: "checkouts#membership_success"
+  get "checkout_extra_credit_success", to: "checkouts#extra_credit_success"
+  get "checkout_pack_credits_success", to: "checkouts#pack_credits_success"
 
   get "billing", to: "billing#show"
 

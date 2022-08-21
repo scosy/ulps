@@ -17,5 +17,18 @@ document.addEventListener("turbo:load", function() {
             percentPosition: true
         });
     }
+
+    if(document.querySelector('#celebrate')) {
+        party.confetti(document.querySelector('#celebrate'), {
+            count: party.variation.range(150, 200),
+            size: party.variation.range(0.5, 1.5)
+        });
+        setTimeout(function() {
+            party.confetti(document.querySelector('#celebrate'), {
+                count: party.variation.range(20, 40),
+                size: party.variation.range(0.5, 1.5)
+            });
+        }, 400);
+    }
 })
   

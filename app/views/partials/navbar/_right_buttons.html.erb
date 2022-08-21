@@ -3,7 +3,7 @@
     <% if current_user.subscribed? %>
     <%= link_to "Acheter 3 crédits", new_user_registration_path, class: "btn btn-primary" %>
     <% else %>
-    <%= link_to "30 jours d'essai gratuit", checkout_path, class: "btn btn-primary" %>
+    <%= link_to "30 jours d'essai gratuit", checkout_membership_path, class: "btn btn-primary" %>
     <% end %>
 <% else %>
     <%= link_to "J'ai déjà un compte", new_user_session_path, class: "btn btn-outline-secondary me-2" %>
