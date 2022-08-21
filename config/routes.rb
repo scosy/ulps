@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :categories
   resources :episodes
   resources :books
+
+  get "episodes/:id/get_episode", to: "episodes#get_episode", as: "get_episode"
+
   get 'public/index'
   get 'public/privacy'
   get 'public/conditions'

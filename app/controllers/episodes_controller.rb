@@ -1,5 +1,6 @@
 class EpisodesController < ApplicationController
-  before_action :set_episode, only: %i[ show edit update destroy ]
+  before_action :set_episode, only: %i[ show edit update destroy get_episode ]
+  before_action :only_admin, only: %i[ new edit create update destroy ]
 
   # GET /episodes or /episodes.json
   def index
@@ -16,6 +17,24 @@ class EpisodesController < ApplicationController
     # Check if user has this episode
     if current_user && current_user.episodes.include?(@episode)
         @user_episode = UserEpisode.where(user_id: current_user.id, episode_id: @episode.id).first
+    end
+  end
+
+  # User get an episode
+  def get_episode
+    # Check if user has this episode
+    if current_user && current_user.episodes.include?(@episode)
+        redirect_to episode_url(@episode), notice: "You already have this episode."
+    else
+      # Check if user has enough credits
+      if current_user.available_credits > 0
+        @user_episode = UserEpisode.new(user_id: current_user.id, episode_id: @episode.id)
+        @user_episode.save
+        current_user.update(available_credits: current_user.available_credits - 1)
+        redirect_to episode_url(@episode)
+      else
+        redirect_to episode_url(@episode), notice: "You don't have enough available_credits."
+      end  
     end
   end
 

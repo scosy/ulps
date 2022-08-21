@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def subscribed?
     payment_processor.subscribed?
   end
+
+  def admin?
+    role == 'admin'
+  end
 end
