@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
+  get 'users/my_account', to: "users#my_account", as: "my_account"
   
   root "public#index"
 end

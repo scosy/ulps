@@ -10,7 +10,7 @@
         <ul class="list-unstyled d-flex flex-wrap align-items-center">
           <% if current_user %>
             <li class="me-4">
-              <%= link_to "Edit Profile", edit_user_registration_path, class: "link-secondary" %>
+              <%= link_to "Mon compte", my_account_path, class: "link-secondary" %>
             </li>
           <% end %>
           <% if current_user && current_user.role == "admin" %>
@@ -32,7 +32,7 @@
   <div class="mb-5"></div>
   <div class="container">
     <div class="text-muted d-flex flex-wrap align-items-center justify-content-between">
-      <p contenteditable="false">© ULPS, made with 🧡 by Harry Jmg<br>2022</p>
+      <p contenteditable="false">© ULPS, made with 💜 by Harry Jmg<br>2022</p>
     </div>
   </div>
 </footer>
