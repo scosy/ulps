@@ -7,17 +7,29 @@
         <p class="lead text-muted" contenteditable="false">Découvre un nouveau résumé ici chaque semaine.</p>
       </div>
     </div>
-    <div class="row my-5 episodes" data-masonry='{"percentPosition": true }'>
+    <div class="row my-5">
+      <ul class="list-group">
         <% @episodes.each do |episode| %>
-          <div class="episode col-sm-4 col-lg-3 mb-4">
-            <div class="card ulps_rounded">
-              <%= link_to episode do %>
-                <%= image_tag "#{episode.book.image_url}", class: "bd-placeholder-img card-img-top" %>
-              <% end %>
-            </div>
-          </div>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-auto col-12">
+                <%= image_tag episode.book.image_url, alt:"Image de l'épisode #{episode.book.title}", class: "rounded-4 episode-image" %>
+              </div>
+              <div class="col-md-8 col-12">
+                <h3 class="fw-bold"><%= episode.book.title %></h3>
+                <h6 class="text-muted"><%= episode.book.subtitle %></h6>
+                <div class="text-muted">Auteur: <%= episode.book.author %></div>
+                <div class="text-muted">Durée: <%= episode.duration / 60 %> minutes</div>
+                <% if episode.users.include?(current_user) %>
+                  <div class="text-muted">Ajouté le: <%= episode.user_episodes.find_by(user: current_user).created_at.strftime("%d/%m/%Y") %></div>
+                  <%= link_to "Accéder à l'épisode", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
+                <% else %>
+                  <%= link_to "En savoir plus", episode_path(episode), class: "btn btn-primary mt-3" %>
+                <% end %>
+              </div>
+          </li>
         <% end %>
-      </div>
+      </ul>
     </div>
     <div class="text-center"><a class="btn btn-primary" href="#">View More Articles</a></div>
   </div>

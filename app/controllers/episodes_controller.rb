@@ -4,12 +4,13 @@ class EpisodesController < ApplicationController
 
   # GET /episodes or /episodes.json
   def index
-    @episodes = Episode.all
+    @episodes = Episode.all.order(published_at: :desc)
   end
 
   # GET /user_episodes
   def user_episodes
-    @episodes = current_user.episodes
+    @user_episodes = UserEpisode.where(user_id: current_user.id).order(created_at: :desc)
+    @episodes = @user_episodes.map { |user_episode| user_episode.episode }
   end
 
   # GET /episodes/1 or /episodes/1.json

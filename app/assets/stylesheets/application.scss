@@ -46,3 +46,10 @@ $light: #dfdfdf;
         box-shadow: 0 0 0 30px rgba(168, 63, 57, 0);
     }
 }
+
+.episode-image {
+	width: 200px;
+	height:200px;
+	object-fit: cover;
+	object-position: 0 -10px;
+}

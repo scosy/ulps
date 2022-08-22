@@ -112,6 +112,3 @@ end
 
 # Give price to existing episodes
 Episode.all.each do |episode| episode.update(price: 495) end
-
-
-# Create users

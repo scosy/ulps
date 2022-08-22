@@ -5,7 +5,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><%= link_to "Tous les livres", episodes_path %></li>
-                    <li class="breadcrumb-item active"><%= link_to @episode.book.categories.first.name, "category_path(@episode.book.category)" %></li>
+                    <li class="breadcrumb-item active"><%= link_to @episode.book.categories.first.name, episodes_path(category_id: @episode.book.categories.first) %></li>
                 </ol>
             </nav>
         </div>
@@ -29,7 +29,7 @@
                 <% end %>
                 <div>Auteur: <span style="font-weight: 600"><%= @episode.book.author %></span></div>
                 <div>Durée: <span style="font-weight: 600"><%= @episode.duration / 60 %> minutes</span></div>
-                <div class="episode_categories">Catégorie: <span style="font-weight: 600"><%= link_to @episode.book.categories.first.name, "category_path(@episode.book.category)" %></span></div>
+                <div class="episode_categories">Catégorie: <span style="font-weight: 600"><%= link_to @episode.book.categories.first.name, episodes_path(category_id: @episode.book.categories.first) %></span></div>
             </div>
         </div>
         <div class="col-sm-12 col-lg-4 ms-auto">
