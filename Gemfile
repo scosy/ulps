@@ -29,6 +29,8 @@ gem "sassc-rails"
 gem "pay"
 gem "stripe"
 
+gem "redcarpet"
+
 gem "sidekiq"
 
 group :development, :test do

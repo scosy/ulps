@@ -6,20 +6,28 @@
   <div class="container">
     <div class="row pt-4">
       <div class="col-sm-12 col-lg-8">
-        <div class="mb-5">
-          <div class="row">
-            <div class="col-sm-12 col-lg-auto">
-              <div class="creator_thumbnail img-thumbnail pulse-image" style="width: 80px;height: 80px;">
-                <%= image_tag "harry_thumbnail.png" %>
-              </div>
-            </div>
-            <div class="col-sm-12 col-lg-8">
-              <div class="text-muted">"<%= @episode.edito %>"</div>
-              <div class="mb-4 text-muted">- Harry Jmg</div>
+        <div class="row">
+          <div class="col-sm-12 col-lg-auto">
+            <div class="creator_thumbnail img-thumbnail pulse-image" style="width: 80px;height: 80px;">
+              <%= image_tag "harry_thumbnail.png" %>
             </div>
           </div>
-          <h4 class="fw-bold mb-2 mt-5">Notes de Harry</h4>
-          <div class="mb-4 text-muted">Essaie ULPS pour avoir accès aux notes personnelles de Harry.</div>
+          <div class="col-sm-12 col-lg-8">
+            <div class="text-muted">"<%= @episode.edito %>"</div>
+            <div class="mb-4 text-muted">- Harry Jmg</div>
+          </div>
+        </div>
+      </div>
+        <div class="col-sm-12 col-lg-10">
+          <h4 class="fw-bold mb-4 mt-5">Notes de Harry</h4>
+          <div class="mb-4 episode-notes">
+            <% if @user_episode %>
+              <%= markdown(@episode.notes) %>
+            <% else %>
+              <p class="text-muted">🔒 Épisode non possédé.</p>
+              <%= image_tag "https://semantic-ui.com/images/wireframe/paragraph.png", class:"my-2" %> 
+            <% end %>
+          </div>
         </div>
       </div>
       <div class="col-12">
