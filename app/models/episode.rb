@@ -5,4 +5,10 @@ class Episode < ApplicationRecord
     has_many :users, through: :user_episodes
 
     has_many :categories, through: :book
+
+    rating
+
+    def rounded_rating
+        self.rating.average.to_i
+    end
 end

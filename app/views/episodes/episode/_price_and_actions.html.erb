@@ -14,8 +14,8 @@
         </div>
     <% else %>
         <div class="d-grid gap-2">
-            <a class="btn btn-primary me-2 mb-2 mb-sm-0" href="/checkout">0,00 € avec l'offre d'essai</a>
+            <%= link_to "0,00 € avec l'offre d'essai", checkout_membership_path, class: "btn btn-primary me-2 mb-2 mb-sm-0" %>
         </div>
-        <p class="text-muted mt-2" style="font-size: small">5,95 €/mois après 30 jours. Résilie quand tu veux.</p>
+        <p class="text-muted mt-2" style="font-size: small">4,90 €/mois après 30 jours. Résilie quand tu veux.</p>
     <% end %>
 </div>

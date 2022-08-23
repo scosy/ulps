@@ -1,14 +1,16 @@
 <ul class="navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 ms-lg-auto me-4">
     <li class="nav-item me-4">
-        <div class="text-dark nav-link d-none d-lg-block ">
-            <% if current_user %>
+        
+        <% if current_user %>
+            <div class="text-dark nav-link d-none d-lg-block ">
                 <%= pluralize(current_user.available_credits, "crédit prêt", plural: "crédits prêts") %>
-            <% end %>
-        </div>
-        <div class="text-white nav-link d-block d-lg-none ">
-            <% if current_user %>
+            </div>
+            <div class="text-white nav-link d-block d-lg-none">
                 <%= pluralize(current_user.available_credits, "crédit prêt", plural: "crédits prêts") %>
-            <% end %>
-        </div>
+            </div>
+        <% else %>
+            <%= link_to "Voir les épisodes", episodes_path, class: "btn btn-outline-secondary d-none d-lg-block" %>
+            <%= link_to "Voir les épisodes", episodes_path, class: "nav-link link-light d-block d-lg-none" %>
+        <% end %>
     </li>
 </ul>

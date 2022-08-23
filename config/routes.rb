@@ -30,4 +30,7 @@ Rails.application.routes.draw do
   get 'users/my_account', to: "users#my_account", as: "my_account"
   
   root "public#index"
+
+  # Ratings routes
+  patch "rates", to: "ratings#create", as: "rates"
 end

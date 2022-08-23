@@ -34,10 +34,22 @@
                         <%= @episode.book.categories.map { |c| link_to c.name, episodes_path(category_id: c) }.join(", ").html_safe %>
                     </span>
                 </div>
+                <div class="d-block" style="height: 24px;">
+                    <%= form_for @episode, url: rates_path(episode_id: @episode), remote: true do |f| %>
+                        <fieldset class="mt-2 rating" style="display: block">
+                            <%= f.collection_radio_buttons :rounded_rating, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_tag: false, boolean_style: :inline do |b| %>
+                                <%= b.radio_button(:onclick => "this.closest('form').submit();") + b.label(class: "full") {''} %>
+                            <% end %>
+                        </fieldset>
+                    <% end %>
+                </div>
+                <div class="mx-1 mt-2 d-block">
+                    <small>Note moyenne: <%= @episode.rating.average.to_f %> (<%= pluralize @episode.rating.total, "avis" %>)</small>
+                </div>
             </div>
         </div>
         <div class="col-sm-12 col-lg-4 ms-auto">
-            <%= render "episodes/episode/header_buttons" %>
+            <%= render "episodes/episode/price_and_actions" %>
         </div>
     </div>
 </div>

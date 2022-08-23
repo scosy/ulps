@@ -32,6 +32,7 @@ gem "stripe"
 gem "redcarpet"
 
 gem "sidekiq"
+gem "rating"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
