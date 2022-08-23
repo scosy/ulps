@@ -25,7 +25,7 @@ class EpisodesController < ApplicationController
   def get_episode
     # Check if user has this episode
     if current_user && current_user.episodes.include?(@episode)
-        redirect_to episode_url(@episode), notice: "You already have this episode."
+        redirect_to episode_url(@episode), notice: "Vous avez déjà cet épisode."
     else
       # Check if user has enough credits
       if current_user.available_credits > 0
@@ -34,7 +34,7 @@ class EpisodesController < ApplicationController
         current_user.update(available_credits: current_user.available_credits - 1)
         redirect_to episode_url(@episode)
       else
-        redirect_to episode_url(@episode), notice: "You don't have enough available_credits."
+        redirect_to episode_url(@episode), notice: "Crédits insuffisants."
       end  
     end
   end
@@ -54,7 +54,7 @@ class EpisodesController < ApplicationController
 
     respond_to do |format|
       if @episode.save
-        format.html { redirect_to episode_url(@episode), notice: "Episode was successfully created." }
+        format.html { redirect_to episode_url(@episode), notice: "Épisode créé avec succès" }
         format.json { render :show, status: :created, location: @episode }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,7 +67,7 @@ class EpisodesController < ApplicationController
   def update
     respond_to do |format|
       if @episode.update(episode_params)
-        format.html { redirect_to episode_url(@episode), notice: "Episode was successfully updated." }
+        format.html { redirect_to episode_url(@episode), notice: "Épisode mis à jour avec succès." }
         format.json { render :show, status: :ok, location: @episode }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -81,7 +81,7 @@ class EpisodesController < ApplicationController
     @episode.destroy
 
     respond_to do |format|
-      format.html { redirect_to episodes_url, notice: "Episode was successfully destroyed." }
+      format.html { redirect_to episodes_url, notice: "Épisode supprimé avec succès." }
       format.json { head :no_content }
     end
   end
