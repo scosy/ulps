@@ -24,16 +24,10 @@
             <% if @user_episode %>
               <%= markdown(@episode.notes) %>
             <% else %>
-              <p class="text-muted">🔒 Épisode non possédé.</p>
+              <p class="text-muted">🔒 Obtenez cet épisode pour voir.</p>
               <%= image_tag "https://semantic-ui.com/images/wireframe/paragraph.png", class:"my-2" %> 
             <% end %>
           </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="mb-5">
-          <h4 class="fw-bold">Commentaires</h4>
-          <div class="mb-4 text-muted"><%= @episode.notes %></div>
         </div>
       </div>
     </div>
