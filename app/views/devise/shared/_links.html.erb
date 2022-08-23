@@ -1,14 +1,20 @@
 <div class="form-group">
   <%- if controller_name != 'sessions' %>
-    <%= link_to t(".sign_in"), new_session_path(resource_name) %><br />
+    <%= link_to new_session_path(resource_name), class: "d-flex justify-content-center align-items-center mb-2 py-2 bg-light rounded text-decoration-none text-muted" do %>
+      <%= t(".sign_in") %>
+    <% end %>
   <% end -%>
 
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-    <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br />
+    <%= link_to new_registration_path(resource_name), class: "d-flex justify-content-center align-items-center mb-2 py-2 bg-light rounded text-decoration-none text-muted" do %>
+      <%= t(".sign_up") %>
+    <% end %>
   <% end -%>
 
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <%= link_to t(".forgot_your_password"), new_password_path(resource_name) %><br />
+    <%= link_to new_password_path(resource_name), class: "d-inline-block link-secondary mb-4" do %>
+      <small><%= t(".forgot_your_password") %></small>
+    <% end %>
   <% end -%>
 
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
@@ -25,7 +31,7 @@
         url: omniauth_authorize_path(resource_name, provider),
         method: :post,
         data: { turbo: false } do |f| %>
-        <%= f.submit t('.sign_in_with_provider'), type: "image", src: image_path("btn_google_signin_light_normal_web.png") %>
+        <%= f.submit t('.sign_in_with_provider'), type: "image", src: image_path("btn_google_signin_dark_normal_web.png") %>
       <% end %>
     <% end %>
   <% end %>
