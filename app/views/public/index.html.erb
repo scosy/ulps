@@ -42,10 +42,14 @@
               <p class="mt-2 d-block d-lg-none text-white"><small>5,95 €/mois après 30 jours. Résiliez quand vous voulez.</small></p>
             <% end %>
           </div>
-          <div class="row align-items-center pt-5">
-            <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5">
-                <%= image_tag "stripe.png", class: "d-inline-block img-fluid" %>
-            </div>
+          <div class="row align-items-center pt-5 partners">
+            <% @partners.each do |partner| %>
+              <div class="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5 partner">
+                <%= link_to partner[:url], target: "_blank" do %>
+                  <%= image_tag "logos_partenaires/#{partner[:name]}.png", class: "d-inline-block img-fluid partner-img", title: partner[:reason], :data => {"bs-toggle" => "tooltip", "bs-placement" => "top"} %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
