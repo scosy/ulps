@@ -11,6 +11,7 @@
                     <%= link_to "Facturation", billing_path, class: "btn btn-primary" %>
                 </div>
             <% end %>
+            <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-dark mt-3", data: { turbo: false } %>
         </div>
     </div>
 </div>

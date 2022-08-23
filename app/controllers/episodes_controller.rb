@@ -5,6 +5,18 @@ class EpisodesController < ApplicationController
   # GET /episodes or /episodes.json
   def index
     @episodes = Episode.all.order(published_at: :desc)
+    # Filter by category_id if present in episode.categories
+    if params[:category_id]
+      @episodes = @episodes.select { |episode| episode.categories.include?(Category.find(params[:category_id])) }
+    end
+    # Filter by creator_id if present in episode.creator
+    if params[:creator_id]
+      @episodes = @episodes.select { |episode| episode.creator.id == params[:creator_id].to_i }
+    end
+    # Filter by search if present in episode.title
+    if params[:search]
+      @episodes = @episodes.select { |episode| episode.title.downcase.include?(params[:search].downcase) }
+    end
   end
 
   # GET /user_episodes
