@@ -1,0 +1,69 @@
+fr:
+  pay:
+    successful:
+      header: Paiement réussi
+      description: Ce paiement a déjà été confirmé avec succès
+    cancelled:
+      header: Paiement annulé
+      description: Ce paiement a été annulé.
+    requires_action:
+      header: 'Confirmer votre paiement de %{amount}'
+      description: >-
+        Une confirmation supplémentaire est nécessaire pour procéder à votre
+        paiement. Veuillez confirmer votre paiement en suivant les instructions
+        ci-dessous.
+      full_name: Nom complet
+      card: Carte bleue
+      button: 'Payer %{amount}'
+      name_missing: Veuillez fournir votre nom.
+      success: Le paiement est réussi.
+    all_rights_reserved: Tous droits réservés.
+    back: Retour
+    refund: Remboursement
+    line_items:
+      amount: Montant
+      description: Description
+      quantity: Quantité
+      subtotal: Sous total
+      discount: Promotion
+      tax: Taxes
+      total: Total
+      unit_price: Prix par unité
+      percent_discount: '%{name} (%{percent}% off)'
+      amount_discount: '%{name} (%{amount} off)'
+    receipt:
+      date: Date
+      number: Numéro de reçu
+      paid: Payé
+      payment_method: Méthode de paiement
+      amount_paid: Montant payé
+      refunded: Remboursé
+      refunded_on: 'Remboursé le %{date}'
+    invoice:
+      number: Numéro de facture
+      date: Date
+      payment_method: Méthode de paiement
+    errors:
+      action_required: >-
+        Cette tentative de paiement a échoué parce qu'une action supplémentaire
+        est requise.
+      invalid_payment: >-
+        Cette tentative de paiement a échoué parce que la méthode de paiement
+        est invalide.
+      email_required: Email requis pour créer un client
+      no_processor: >-
+        Aucun partenaire de paiement sélectionné. Assurez-vous de paramétrer
+        l'attribut de %{class_name} à Stripe ou Braintree
+      braintree:
+        authorization: >-
+          Either the data you submitted is malformed and does not match the API
+          or the API key you used may not be authorized to perform this action.
+    user_mailer:
+      receipt:
+        subject: Paiement reçu
+      refund:
+        subject: Paiement remboursé
+      subscription_renewing:
+        subject: Abonnement bientôt renouvelé
+      payment_action_required:
+        subject: Confirmez votre paiement

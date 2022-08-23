@@ -1,6 +1,5 @@
-<h3>Extra confirmation is needed to process your payment</h3>
-<p>Your <%= Pay.business_name %> subscription requires confirmation to process your payment to continue access.</p>
+<h3>Une action est requise pour procéder à votre paiement</h3>
+<p>Votre abonnement à <%= Pay.business_name %> a besoin de votre confirmation.</p>
 
-<p><%= link_to "Click here to confirm your payment", pay.payment_url(params[:payment_intent_id]) %>. If you have any questions, please hit reply and let us know.</p>
-
-<p>- The <%= Pay.business_name %> Team</p>
+<p><%= link_to "Cliquez ici pour confirmer votre paiement", pay.payment_url(params[:payment_intent_id]) %>. Si vous avez des questions répondez à cet email.</p>
+<p>- Harry de <%= Pay.business_name %></p>
