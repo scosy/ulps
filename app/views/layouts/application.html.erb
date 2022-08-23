@@ -6,11 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <script src="https://js.stripe.com/v3/"></script>
+    <% if controller_name == 'checkouts' || controller_name == 'billing' %>
+      <script src="https://js.stripe.com/v3/"></script>
+    <% end %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
   </head>
 
   <body>

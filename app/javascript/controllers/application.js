@@ -14,15 +14,6 @@ document.addEventListener("turbo:load", function() {
     return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 
-    // Only if .episodes is present on the page
-    if (document.querySelector(".episodes")) {
-        var grid = document.querySelector('.episodes');
-        var msnry = new Masonry( grid, {
-            itemSelector: '.episode',
-            percentPosition: true
-        });
-    }
-
     if(document.querySelector('#celebrate')) {
         party.confetti(document.querySelector('#celebrate'), {
             count: party.variation.range(150, 200),

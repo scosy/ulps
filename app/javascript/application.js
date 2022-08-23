@@ -4,7 +4,6 @@ import "@hotwired/turbo-rails"
 import "popper"
 import "bootstrap"
 
-import "masonry-layout"
 import "party"
 
 import "controllers"

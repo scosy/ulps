@@ -3,7 +3,7 @@
     <%= link_to "Mes épisodes", user_episodes_path, class: "btn btn-outline-secondary me-2" %>
     <% if current_user.subscribed? %>
         <% if current_user.available_credits == 0 %>
-            <%= link_to "Acheter 3 crédits", new_user_registration_path, class: "btn btn-primary" %>
+            <%= link_to "Acheter 3 crédits", checkout_pack_credits_path, class: "btn btn-primary" %>
         <% end %>
     <% else %>
         <%= link_to "30 jours d'essai gratuit", checkout_membership_path, class: "btn btn-primary" %>
