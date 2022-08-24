@@ -39,28 +39,12 @@ class CheckoutsController < ApplicationController
     end
 
     def membership_success
-        add_credits_if_not_yet(1)
     end
 
     def extra_credit_success
-        add_credits_if_not_yet(1)
     end
 
     def pack_credits_success
-        add_credits_if_not_yet(3)
-    end
-
-    private 
-
-    def add_credits_if_not_yet(credits)
-        @stripe_checkout_session = Stripe::Checkout::Session.retrieve(params[:session_id])
-
-        if @stripe_checkout_session.status == "complete"
-            if current_user.filled_orders.where(checkout_session_id: @stripe_checkout_session.id).empty?
-                current_user.filled_orders.create(checkout_session_id: @stripe_checkout_session.id)
-                current_user.update(available_credits: current_user.available_credits + credits)
-            end
-        end
     end
 
 end

@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_090852) do
     t.text "notes"
     t.string "edito"
     t.integer "price"
-    t.datetime "published_at", default: "2022-08-01 04:47:33"
+    t.datetime "published_at"
     t.string "state", default: "draft"
   end
 

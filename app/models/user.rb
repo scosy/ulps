@@ -12,7 +12,7 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
     if user.nil?
-      user = self.create(email: auth.info.email, password: Devise.friendly_token[0,20], provider: auth.provider, uid: auth.uid, name: auth.info.name, image: auth.info.image)
+      user = self.create(email: auth.info.email, password: Devise.friendly_token[0,20], provider: auth.provider, uid: auth.uid, name: auth.info.name)
     end
     user
   end

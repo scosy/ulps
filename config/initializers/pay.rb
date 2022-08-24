@@ -3,7 +3,7 @@ Pay.setup do |config|
   config.business_name = "ULPS"
   config.business_address = "Les Gachots, 77510 Verdelot, France"
   config.application_name = "ULPS"
-  config.support_email = "yo@ulps.fr"
+  config.support_email = '"Harry de ULPS 📚" <yo@ulps.fr>'
 
   config.default_product_name = "default"
   config.default_plan_name = "default"
@@ -21,15 +21,55 @@ Pay.setup do |config|
     (price&.type == "recurring") && (price.recurring&.interval == "year")
   }
 
-  # Give credits to the user when they get charged
-  class InvoicePaidProcessor
+  class FulfillCustomerSubscriptionCreated
     def call(event)
-      checkout_session = event.data.object
-      customer = Pay::Customer.find_by(processor_id: checkout_session.customer)
-      user = customer.owner
-      user.update(available_credits: user.available_credits + 1)
+      object = event.data.object # Stripe::Subscription object
+
+      if object.status == "trialing"
+        customer = Pay::Customer.find_by(processor_id: object.customer)
+        user = customer.owner
+        user.update(available_credits: 1)
+      end
     end
   end
-  Pay::Webhooks.delegator.subscribe "stripe.invoice.paid", InvoicePaidProcessor.new
+
+  class FulfillInvoicePaid
+    def call(event)
+      object = event.data.object # Stripe::Invoice object
+
+      if object.status == "paid"
+        customer = Pay::Customer.find_by(processor_id: object.customer)
+        user = customer.owner
+        user.update(available_credits: user.available_credits + 1)
+      end
+    end
+  end
+
+  class FulfillCheckout
+    def call(event)
+      object = event.data.object # Stripe::Checkout::Session object
+
+      if object.payment_status == "paid"
+        customer = Pay::Customer.find_by(processor_id: object.customer)
+        user = customer.owner
+        line_items = Stripe::Checkout::Session.list_line_items(object.id, {limit: 5})
+        if line_items.data[0].price.id == ENV["STRIPE_PACK_CREDITS_PRICE_ID"]
+          user.update(available_credits: user.available_credits + 3)
+        elsif line_items.data[0].price.id == ENV["STRIPE_EXTRA_CREDIT_PRICE_ID"]
+          user.update(available_credits: user.available_credits + 1)
+        end
+      end
+    end
+  end
+
+  # Subscriptions created webhook
+  Pay::Webhooks.delegator.subscribe "stripe.customer.subscription.created", FulfillCustomerSubscriptionCreated.new
+  
+  # Subscriptions renewed webhook
+  Pay::Webhooks.delegator.subscribe "stripe.invoice.paid", FulfillInvoicePaid.new
+
+  # Checkout session completed webhooks
+  Pay::Webhooks.delegator.subscribe "stripe.checkout.session.completed", FulfillCheckout.new
+  Pay::Webhooks.delegator.subscribe "stripe.checkout.session.async_payment_succeeded", FulfillCheckout.new
 
 end
