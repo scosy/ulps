@@ -1,0 +1,45 @@
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-4 mb-5">
+        <span class="text-muted" contenteditable="false">ULPS</span>
+        <h2 class="display-5 fw-bold mt-2 mb-3" contenteditable="false">Obtenir des crédits</h2>
+        <p class="lead text-muted" contenteditable="false">Chaque crédit permet d'acquérir un nouvel épisode. Vous pouvez obtenir des crédits supplémentaires ici.</p>
+      </div>
+      <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+        <div class="p-3 p-md-5 bg-primary rounded text-center">
+          <h4 class="text-white" contenteditable="false">3 crédits</h4>
+          <span class="d-inline-block display-4 fw-bold mb-5 text-white" contenteditable="false">11,90€</span>
+          <ul class="mb-5">
+            <% ["3 crédits tout frais", "Remise appliquée"].each do |feature_name| %>
+              <li class="d-flex align-items-center mb-3">
+              <svg class="text-light me-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 24px;height: 24px">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <p class="text-white mb-0" contenteditable="false"><%= feature_name %></p>
+              </li>
+            <% end %>
+          </ul>
+          <%= link_to "Obtenir 3 crédits", checkout_pack_credits_path, class: "btn btn-light w-100 text-center" %>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="p-3 p-md-5 bg-light rounded text-center" contenteditable="false">
+          <h4 contenteditable="false">1 crédit</h4>
+          <span class="d-inline-block display-4 fw-bold mb-5" contenteditable="false">4,90€</span>
+          <ul class="mb-5">
+            <% ["1 crédit tout frais"].each do |feature_name| %>
+              <li class="d-flex align-items-center mb-3">
+              <svg class="text-muted me-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 24px;height: 24px">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <p class="text-dark mb-0" contenteditable="false"><%= feature_name %></p>
+              </li>
+            <% end %>
+          </ul>
+          <%= link_to "Obtenir 1 crédit", checkout_extra_credit_path, class: "btn btn-primary w-100 text-center" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

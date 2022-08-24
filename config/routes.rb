@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get "user_episodes", to: "episodes#user_episodes"
 
+  get "checkouts", to: "checkouts#index"
+
   get "checkout_membership", to: "checkouts#membership"
   get "checkout_extra_credit", to: "checkouts#extra_credit"
   get "checkout_pack_credits", to: "checkouts#pack_credits"

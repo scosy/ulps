@@ -1,6 +1,9 @@
 class CheckoutsController < ApplicationController
     before_action :authenticate_user!
 
+    def index
+    end
+
     def membership
         if current_user.subscribed?
             redirect_to root_path
