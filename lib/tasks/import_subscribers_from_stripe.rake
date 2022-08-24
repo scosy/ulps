@@ -25,7 +25,7 @@ namespace :import_subscribers_from_stripe do
                 name:            "default"
             )
 
-            puts (subscriptions.errors.none ? "✅" : "❌")
+            puts (subscription.errors.none ? "✅" : "❌")
             i += 1
         end
     end
