@@ -34,6 +34,8 @@ gem "redcarpet"
 gem "sidekiq"
 gem "rating"
 
+gem "sib-api-v3-sdk"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end

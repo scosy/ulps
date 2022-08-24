@@ -112,6 +112,8 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.11.0)
+    ethon (0.15.0)
+      ffi (>= 1.15.0)
     execjs (2.8.1)
     faraday (2.5.2)
       faraday-net_http (>= 2.0, < 3.1)
@@ -132,6 +134,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.2)
     jwt (2.4.1)
     launchy (2.5.0)
       addressable (~> 2.7)
@@ -257,6 +260,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sib-api-v3-sdk (9.0.0)
+      addressable (~> 2.3, >= 2.3.0)
+      json (~> 2.1, >= 2.1.0)
+      typhoeus (~> 1.0, >= 1.0.1)
     sidekiq (6.5.4)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -279,6 +286,8 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
+    typhoeus (1.4.0)
+      ethon (>= 0.9.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     warden (1.2.9)
@@ -330,6 +339,7 @@ DEPENDENCIES
   redis (~> 4.0)
   sassc-rails
   selenium-webdriver
+  sib-api-v3-sdk
   sidekiq
   sprockets-rails
   stimulus-rails

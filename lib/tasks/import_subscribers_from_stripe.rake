@@ -17,14 +17,16 @@ namespace :import_subscribers_from_stripe do
             end
 
             subscription = user.subscriptions.where(processor_id: stripe_sub.id).first_or_initialize
-            subscription.update(
+            subscription_updated = subscription.update(
                 customer:        pay_customer,
                 processor_plan:  stripe_sub.plan.id,
                 status:          stripe_sub.status,
                 quantity:        1,
                 name:            "default"
             )
-            puts "✅"
+
+            puts (subscription_updated? ? "✅" : "❌")
+            i += 1
         end
     end
 
