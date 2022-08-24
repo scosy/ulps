@@ -20,7 +20,7 @@ fr:
       reset_password_instructions:
         subject: "Instructions pour changer le mot de passe"
       welcome_reset_password_instructions:
-        subject: "Tout change dans ULPS"
+        subject: "Ton accès à ton espace membre ULPS"
       unlock_instructions:
         subject: "Instructions pour déverrouiller le compte"
       email_changed:

@@ -14,6 +14,7 @@ class User < ApplicationRecord
     if user.nil?
       user = self.create(email: auth.info.email, password: Devise.friendly_token[0,20], provider: auth.provider, uid: auth.uid, name: auth.info.name, image: auth.info.image)
     end
+    user
   end
 
   def subscribed?
