@@ -4,7 +4,7 @@
       <div class="col-12 col-lg-5 me-auto mb-5">
         <div>
           <div class="mx-auto text-center py-5">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <span class="text-muted">ULPS</span>
               <h3 class="fw-bold mb-5"><%= t('.sign_up') %></h3>
               <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control mb-2', placeholder: "Email" %>

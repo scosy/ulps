@@ -10,11 +10,9 @@ class User < ApplicationRecord
   has_many :filled_orders
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name
-      user.avatar_url = auth.info.image
+    user = User.where(email: auth.info.email).first
+    if user.nil?
+      user = self.create(email: auth.info.email, password: Devise.friendly_token[0,20], provider: auth.provider, uid: auth.uid, name: auth.info.name, image: auth.info.image)
     end
   end
 
@@ -25,4 +23,9 @@ class User < ApplicationRecord
   def admin?
     role == 'admin'
   end
+
+  def send_welcome_reset_password_instructions
+    UserMailer.welcome_reset_password_instructions(self).deliver_later
+  end
+    
 end

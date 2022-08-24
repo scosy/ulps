@@ -42,6 +42,7 @@ group :development do
   gem "web-console"
   gem "dotenv-rails"
   gem "letter_opener"
+  gem "byebug"
 end
 
 group :test do

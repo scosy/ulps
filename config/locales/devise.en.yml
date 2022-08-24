@@ -21,6 +21,8 @@ en:
         subject: "Confirmation instructions"
       reset_password_instructions:
         subject: "Reset password instructions"
+      welcome_reset_password_instructions:
+        subject: "ULPS V2 is live !"
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:
