@@ -16,7 +16,7 @@
                 <div class="d-grid gap-2">
                     <%= link_to "▶ Extrait", "#", onclick: "document.querySelector('#extract_player').style.display = 'block'; this.style.display = 'none'; return false;", class: "btn btn-light" %>
                     <div id="extract_player" style="display: none;">
-                        <%= audio_tag @episode.mp3_url, controls: true, style: " width: -webkit-fill-available;" %>
+                        <%= audio_tag @episode.preview_url, controls: true, style: " width: -webkit-fill-available;" %>
                     </div>
                 </div>
             </div>
