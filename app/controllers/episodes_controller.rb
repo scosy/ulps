@@ -4,7 +4,7 @@ class EpisodesController < ApplicationController
 
   # GET /episodes or /episodes.json
   def index
-    @episodes = Episode.all.order(published_at: :desc)
+    @episodes = Episode.all.where(state: "published").order(published_at: :desc)
     # Filter by category_id if present in episode.categories
     if params[:category_id]
       @episodes = @episodes.select { |episode| episode.categories.include?(Category.find(params[:category_id])) }
@@ -23,6 +23,7 @@ class EpisodesController < ApplicationController
   def user_episodes
     @user_episodes = UserEpisode.where(user_id: current_user.id).order(created_at: :desc)
     @episodes = @user_episodes.map { |user_episode| user_episode.episode }
+    render :index
   end
 
   # GET /episodes/1 or /episodes/1.json
@@ -106,6 +107,6 @@ class EpisodesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def episode_params
-      params.require(:episode).permit(:title, :book_id, :creator_id, :duration, :affiliate_link, :mp3_url, :preview_url, :notes, :rounded_rating)
+      params.require(:episode).permit(:title, :book_id, :creator_id, :duration, :affiliate_link, :mp3_url, :preview_url, :notes, :rounded_rating, :state, :published_at)
     end
 end

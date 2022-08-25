@@ -1,6 +1,6 @@
 <div class="mb-5">
     <% if @user_episode.present? %>
-        <p>Ajouté le : <br><span class="text-muted"><%= @user_episode.created_at.strftime("%d/%m/%Y") %></span></p>
+        <p>Ajouté à vos épisodes le: <br><span class="text-muted"><%= @user_episode.created_at.strftime("%d/%m/%Y") %></span></p>
         <div class="d-grid gap-2">
             <%= link_to "Écouter", "#", onclick: "document.querySelector('#audio_player').style.display = 'block'; this.style.display = 'none'; return false;", class: "btn btn-primary me-2 mb-2 mb-sm-0" %>
             <div id="audio_player" style="display: none;">

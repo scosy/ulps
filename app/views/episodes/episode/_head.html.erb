@@ -46,6 +46,9 @@
                 <div class="mx-1 mt-2 d-block">
                     <small>Note moyenne: <%= @episode.rating.average.to_f %> (<%= pluralize @episode.rating.total, "avis" %>)</small>
                 </div>
+                <div class="mx-1 mt-3 d-block text-muted">
+                    <small>Épisode publié le: <%= @episode.published_at.strftime("%d/%m/%Y") %></small>
+                </div>
             </div>
         </div>
         <div class="col-sm-12 col-lg-4 ms-auto">

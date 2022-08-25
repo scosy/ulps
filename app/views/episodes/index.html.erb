@@ -16,15 +16,22 @@
                 <%= image_tag episode.book.image_url, alt:"Image de l'épisode #{episode.book.title}", class: "rounded-4 episode-image" %>
               </div>
               <div class="col-md-8 col-12">
+                <% if episode.users.include?(current_user) %>
+                  <div class="text-muted"><small>Ajouté sur ULPS le: <%= episode.user_episodes.find_by(user: current_user).created_at.strftime("%d/%m/%Y") %></small></div>
+                <% end %>
                 <h3 class="fw-bold"><%= episode.book.title %></h3>
+                
                 <h6 class="text-muted"><%= episode.book.subtitle %></h6>
                 <div class="text-muted">Auteur: <%= episode.book.author %></div>
                 <div class="text-muted">Durée: <%= episode.duration / 60 %> minutes</div>
                 <% if episode.users.include?(current_user) %>
-                  <div class="text-muted">Ajouté le: <%= episode.user_episodes.find_by(user: current_user).created_at.strftime("%d/%m/%Y") %></div>
                   <%= link_to "Accéder à l'épisode", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
                 <% else %>
                   <%= link_to "En savoir plus", episode_path(episode), class: "btn btn-primary mt-3" %>
+                <% end %>
+                <% if current_user && current_user.admin? %>
+                  <%= link_to "Modifier", edit_episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
+                  <%= link_to "Supprimer", episode_path(episode), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet épisode?" }, class: "btn btn-danger mt-3" %>
                 <% end %>
               </div>
           </li>
