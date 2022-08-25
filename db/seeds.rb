@@ -42,60 +42,52 @@ end
 # Create episodes
 episodes = [
     {
-        book: Book.find_by(title: "Le pouvoir du moment présent"),
-        duration: 2580,
-        notes: "This is my notes",
-        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
-        mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
-        preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
-        affiliate_link: "https://amzn.to/3RDGk48"
-    },{
         book: Book.find_by(title: "Deep Work"),
-        duration: 2580,
+        duration: (49 * 60),
         notes: "This is my notes",
-        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
+        edito: "Ce livre m'a aidé à faire du travail en profondeur une priorité dans ma vie professionnelle.",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
-        preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
+        preview_url: "https://audio.ausha.co/yv7wRCq9mQNL.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
     },{
         book: Book.find_by(title: "La lecture rapide"),
-        duration: 2580,
+        duration: (32 * 60),
         notes: "This is my notes",
-        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
+        edito: "Ce livre m'aide chaque jour à lire plus rapidement et à comprendre plus rapidement ce que je lis.",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
-        preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
+        preview_url: "https://audio.ausha.co/bVw1acJmYp0E.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
     },{
         book: Book.find_by(title: "La vérité sur ce qui nous motive"),
-        duration: 2580,
+        duration: (41 * 60),
         notes: "This is my notes",
-        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
+        edito: "Ce livre m'a aidé à comprendre les piliers de ma motivation pour réussir à la maitriser.",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
-        preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
+        preview_url: "https://audio.ausha.co/B6Xj4sxqwPqQ.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
     },{
         book: Book.find_by(title: "The war of art"),
-        duration: 2580,
+        duration: (55 * 60),
         notes: "This is my notes",
-        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
+        edito: "Ce livre m'a fait découvrir que nous étions tous en guerre contre un ennemi intérieur puissant : la résistance.",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
-        preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
+        preview_url: "https://audio.ausha.co/yJ8M4u8rLWq4.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
     },{
         book: Book.find_by(title: "Le plus étrange des secrets"),
-        duration: 2580,
+        duration: (43 * 60),
         notes: "This is my notes",
-        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
+        edito: "Ce livre d'une efficacité et d'une simplicité étonnante m'a aidé à comprendre une loi essentielle de l'univers.",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
-        preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
+        preview_url: "https://audio.ausha.co/B1EJOFE0PV51.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
     },{
         book: Book.find_by(title: "La physique de la conscience"),
-        duration: 2580,
+        duration: (45 * 60),
         notes: "This is my notes",
-        edito: "Ce livre a changé ma façon d'avancer, tu peux retrouver toutes mes notes juste ci-dessous",
+        edito: "Ce livre est l'un des plus intéressants que j'ai eu la chance de lire. On y découvre une théorie sur le sens même de la réalité.",
         mp3_url: "https://audio.ausha.co/BN0R4f619n0y.mp3",
-        preview_url: "https://audio.ausha.co/BqQK5H1PqXNM.mp3",
+        preview_url: "https://audio.ausha.co/oaR86hrZwxNL.mp3",
         affiliate_link: "https://amzn.to/3RDGk48"
     }  
 ].each do |episode|
@@ -111,4 +103,4 @@ episodes = [
 end
 
 # Give price to existing episodes
-Episode.all.each do |episode| episode.update(price: 495) end
+Episode.all.each do |episode| episode.update(price: 490) end

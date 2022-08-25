@@ -86,10 +86,7 @@ fieldset, label { margin: 0; padding: 0; }
     font-size: 1.25em;
     /* Solid variation font awesome */
     
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
     font: var(--fa-font-regular);
-    display: inline-block;
     content: "\f004";
 }
 
