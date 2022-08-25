@@ -3,7 +3,7 @@ namespace :import_subscribers_from_stripe do
 
     task :run => :environment do   
         i = 0
-        Stripe::Subscription.list.each do |stripe_sub|
+        Stripe::Subscription.list(limit: 100).each do |stripe_sub|
             print "#{i} - Importing #{stripe_sub.customer}... "
             pay_customer = Pay::Customer.find_by(processor_id: stripe_sub.customer)
             if pay_customer.nil?
