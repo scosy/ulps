@@ -3,7 +3,7 @@ Pay.setup do |config|
   config.business_name = "ULPS"
   config.business_address = "Les Gachots, 77510 Verdelot, France"
   config.application_name = "ULPS"
-  config.support_email = '"Harry de ULPS 📚" <yo@ulps.fr>'
+  config.support_email = '"Support ULPS 📚" <support@ulps.fr>'
 
   config.default_product_name = "default"
   config.default_plan_name = "default"
@@ -27,8 +27,12 @@ Pay.setup do |config|
 
       if object.status == "trialing"
         customer = Pay::Customer.find_by(processor_id: object.customer)
-        user = customer.owner
-        user.update(available_credits: 1)
+        unless customer.nil?
+          user = customer.owner
+          user.update(available_credits: 1)
+        else
+          puts "ULPS ALERT - No Pay::Customer found for Susbcription #{object.id}"
+        end
       end
     end
   end
@@ -39,8 +43,12 @@ Pay.setup do |config|
 
       if object.status == "paid"
         customer = Pay::Customer.find_by(processor_id: object.customer)
-        user = customer.owner
-        user.update(available_credits: user.available_credits + 1)
+        unless customer.nil?
+          user = customer.owner
+          user.update(available_credits: user.available_credits + 1)
+        else
+          puts "ULPS_ALERT - No Pay::Customer found for invoice #{object.id}"
+        end
       end
     end
   end

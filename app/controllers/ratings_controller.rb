@@ -4,7 +4,9 @@ class RatingsController < ApplicationController
     skip_before_action :verify_authenticity_token
   
     def create
-        current_user.rate @episode, rating_params[:rounded_rating]
+        if current_user && current_user.episodes.include?(@episode)
+            current_user.rate @episode, rating_params[:rounded_rating]
+        end
     end
 
     private
