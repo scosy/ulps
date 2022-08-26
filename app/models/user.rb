@@ -28,5 +28,18 @@ class User < ApplicationRecord
   def send_welcome_reset_password_instructions
     UserMailer.welcome_reset_password_instructions(self).deliver_later
   end
+
+  def send_credits_added(credits)
+    UserMailer.credits_added(self, credits).deliver_later
+  end
+
+  def add_credits(credits)
+    self.update(available_credits: self.available_credits + credits)
+    self.send_credits_added(credits)
+  end
+
+  def episode_obtained(episode)
+    UserMailer.episode_obtained(self, episode).deliver_later
+  end
     
 end

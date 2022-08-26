@@ -4,7 +4,7 @@
         <div class="row pt-5">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><%= link_to "Tous les livres", episodes_path %></li>
+                    <li class="breadcrumb-item"><%= link_to "Tous les épisodes", episodes_path %></li>
                     <li class="breadcrumb-item active"><%= link_to @episode.book.categories.first.name, episodes_path(category_id: @episode.book.categories.first) %></li>
                 </ol>
             </nav>

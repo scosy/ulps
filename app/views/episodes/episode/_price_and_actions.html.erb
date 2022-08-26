@@ -6,6 +6,9 @@
             <div id="audio_player" style="display: none;">
                 <%= audio_tag @episode.mp3_url, controls: true %>
             </div>
+            <div class="d-grid gap-2">
+                <%= link_to "Télécharger", @episode.mp3_url, target: "_blank", class: "btn btn-outline-secondary me-2 mb-2 mb-sm-0" %>
+            </div>
         </div>
     <% elsif current_user && current_user.subscribed? %>
         <p>Prix: <%= price_str(@episode.price) %><br>ou 1 crédit ULPS</p>
@@ -18,4 +21,11 @@
         </div>
         <p class="text-muted mt-2" style="font-size: small">4,90 €/mois après 30 jours. Résilie quand tu veux.</p>
     <% end %>
+    <div class="divider my-4">
+        <hr>
+        <span>Ou</span>
+    </div>
+    <div class="d-grid gap-2">
+        <%= link_to "Se procurer le livre sur Amazon", @episode.affiliate_link, class: "btn btn-outline-secondary me-2 mb-2 mb-sm-0" %>
+    </div>
 </div>

@@ -62,9 +62,9 @@ Pay.setup do |config|
         user = customer.owner
         line_items = Stripe::Checkout::Session.list_line_items(object.id, {limit: 5})
         if line_items.data[0].price.id == ENV["STRIPE_PACK_CREDITS_PRICE_ID"]
-          user.update(available_credits: user.available_credits + 3)
+          user.add_credits(3)
         elsif line_items.data[0].price.id == ENV["STRIPE_EXTRA_CREDIT_PRICE_ID"]
-          user.update(available_credits: user.available_credits + 1)
+          user.add_credits(1)
         end
       end
     end

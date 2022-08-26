@@ -34,7 +34,7 @@ class EpisodesController < ApplicationController
     end
   end
 
-  # User get an episode
+  # POST /episodes/1/get_episode
   def get_episode
     # Check if user has this episode
     if current_user && current_user.episodes.include?(@episode)
@@ -45,7 +45,7 @@ class EpisodesController < ApplicationController
         @user_episode = UserEpisode.new(user_id: current_user.id, episode_id: @episode.id)
         @user_episode.save
         current_user.update(available_credits: current_user.available_credits - 1)
-        redirect_to episode_url(@episode)
+        redirect_to episode_url(@episode), success: "Félicitations, vous avez bien acheté cet épisode."
       else
         redirect_to episode_url(@episode), notice: "Crédits insuffisants."
       end  
