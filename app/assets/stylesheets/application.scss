@@ -53,7 +53,13 @@ $light: #dfdfdf;
 	height:200px;
 	object-fit: cover;
 	object-position: 0 -10px;
-    filter: drop-shadow(1px 1px 3px black);
+    -webkit-transition: .1s ease-in-out;
+	transition: .1s ease-in-out;
+    
+}
+
+.link-episode-image:hover img {
+    opacity: .8;
 }
 
 .episode-notes {

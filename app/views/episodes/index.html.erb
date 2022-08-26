@@ -13,7 +13,9 @@
           <li class="list-group-item">
             <div class="row mb-2">
               <div class="col-md-auto col-12">
-                <%= image_tag episode.book.image_url, alt:"Image de l'épisode #{episode.book.title}", class: "rounded-4 episode-image" %>
+                <%= link_to episode_path(episode), class: "link-episode-image" do %>
+                  <%= image_tag episode.book.image_url, alt:"Image de l'épisode #{episode.book.title}", class: "rounded-3 episode-image" %>
+                <% end %>
               </div>
               <div class="col-md-8 col-12">
                 <% if episode.users.include?(current_user) %>
