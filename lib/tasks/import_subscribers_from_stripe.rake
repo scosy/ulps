@@ -1,6 +1,22 @@
 namespace :import_subscribers_from_stripe do
     desc 'Import subscribers from Stripe'
 
+    task :give_episodes => :environment do
+        i = 0
+        Stripe::Customer.list(limit: 100).each do |stripe_customer|
+            puts "#{i += 1} - Updating #{stripe_customer.id}... "
+            stripe_customer.subscriptions.each do |stripe_sub|
+                if stripe_sub.items.count == 1
+                    episode = Episode.find_by(stripe_id: stripe_sub.items.first.id)
+                    if episode
+                        user_episode = UserEpisode.new(user_id: stripe_customer.id, episode_id: episode.id)
+                        user_episode.save
+                    end
+                end
+            end
+        end
+    end
+
     task :update => :environment do
         i = 0
         Stripe::Subscription.list(status: "active").each do |stripe_sub|

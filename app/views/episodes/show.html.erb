@@ -25,7 +25,13 @@
               <%= markdown(@episode.notes) %>
             <% else %>
               <p class="text-muted">🔒 Obtenez cet épisode pour voir.</p>
-              <%= image_tag "https://semantic-ui.com/images/wireframe/paragraph.png", class:"my-2" %> 
+              <div class="hidden-description lg"></div>
+              <div class="hidden-description md"></div>
+              <div class="hidden-description sm"></div>
+              <div class="hidden-description lg"></div>
+              <div class="hidden-description md"></div>
+              <div class="hidden-description md"></div>
+              <div class="hidden-description xs"></div>
             <% end %>
           </div>
         </div>
