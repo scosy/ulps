@@ -30,6 +30,7 @@ Pay.setup do |config|
         unless customer.nil?
           user = customer.owner
           user.update(available_credits: 1)
+          user.filled_orders.create(description: "Started subscription : get 1 credit")
         else
           puts "ULPS ALERT - No Pay::Customer found for Susbcription #{object.id}"
         end
@@ -46,6 +47,7 @@ Pay.setup do |config|
         unless customer.nil?
           user = customer.owner
           user.update(available_credits: user.available_credits + 1)
+          user.filled_orders.create(description: "Get 1 credit for invoice #{object.id}")
         else
           puts "ULPS_ALERT - No Pay::Customer found for invoice #{object.id}"
         end
@@ -61,12 +63,17 @@ Pay.setup do |config|
         customer = Pay::Customer.find_by(processor_id: object.customer)
         user = customer.owner
         line_items = Stripe::Checkout::Session.list_line_items(object.id, {limit: 5})
-        if line_items.data[0].price.id == ENV["STRIPE_PACK_CREDITS_PRICE_ID"]
-          user.add_credits(3)
-        elsif line_items.data[0].price.id == ENV["STRIPE_EXTRA_CREDIT_PRICE_ID"]
-          user.add_credits(1)
-        end
+        user.add_credits(credits_to_add(line_items))
+        user.filled_orders.create(description: "Add #{credits_to_add} credits to account")
       end
+    end
+
+    private
+
+    def credits_to_add(line_items)
+      credits_to_add = 3 if line_items.data[0].price.id == ENV["STRIPE_PACK_CREDITS_PRICE_ID"]
+      credits_to_add = 1 if line_items.data[0].price.id == ENV["STRIPE_EXTRA_CREDIT_PRICE_ID"]
+      credits_to_add
     end
   end
 

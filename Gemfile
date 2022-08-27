@@ -18,6 +18,7 @@ gem "devise"
 gem "devise-i18n"
 gem "devise-i18n-views"
 gem "devise-bootstrap-views"
+gem "devise_masquerade"
 
 gem "omniauth"
 gem "omniauth-google-oauth2"
@@ -35,6 +36,8 @@ gem "sidekiq"
 gem "rating"
 
 gem "sib-api-v3-sdk"
+
+gem "administrate"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -4,6 +4,10 @@
 
     <%= link_to "Voir le catalogue", episodes_path, class: "btn btn-outline-light me-2 d-inline-block d-lg-none" %>
     <%= link_to "Mes épisodes", user_episodes_path, class: "btn btn-outline-light me-2 d-inline-block d-lg-none" %>
+
+    <% if current_user.admin? %>
+        <%= link_to "Administration", admin_root_path, class: "btn btn-outline-danger me-2 d-none d-lg-inline-block" %>
+    <% end %>
     
     <% if current_user.subscribed? %>
         <% if current_user.available_credits == 0 %>
