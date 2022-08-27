@@ -36,8 +36,9 @@ class EpisodesController < ApplicationController
 
   # POST /episodes/1/get_episode
   def get_episode
+    authenticate_user!
     # Check if user has this episode
-    if current_user && current_user.episodes.include?(@episode)
+    if current_user.episodes.include?(@episode)
         redirect_to episode_url(@episode), notice: "Vous avez déjà cet épisode."
     else
       # Check if user has enough credits

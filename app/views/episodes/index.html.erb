@@ -26,18 +26,7 @@
                 <h6 class="text-muted"><%= episode.book.subtitle %></h6>
                 <div class="text-muted">Auteur: <%= episode.book.author %></div>
                 <div class="text-muted">Durée: <%= episode.duration / 60 %> minutes</div>
-                <div class="episode-index-buttons">
-                  <% if episode.users.include?(current_user) %>
-                    <%= link_to "Accéder à l'épisode", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
-                  <% else %>
-                    <%= link_to "En savoir plus", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
-                    <%= link_to "Obtenir pour 1 crédit", get_episode_url(episode) , method: :post, class: "btn btn-primary mt-3 ms-2" %>
-                  <% end %>
-                  <% if current_user && current_user.admin? %>
-                    <%= link_to "Modifier", edit_episode_path(episode), class: "btn btn-outline-secondary mt-3 ms-2" %>
-                    <%= link_to "Supprimer", episode_path(episode), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet épisode?" }, class: "btn btn-danger mt-3 ms-2" %>
-                  <% end %>
-                </div>
+                <%= render "episodes/index_buttons", episode: episode %>
               </div>
           </li>
         <% end %>

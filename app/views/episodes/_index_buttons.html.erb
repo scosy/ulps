@@ -1,0 +1,16 @@
+<div class="episode-index-buttons">
+    <% if episode.users.include?(current_user) %>
+        <%= link_to "Accéder à l'épisode", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
+    <% else %>
+        <%= link_to "En savoir plus", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
+        <% if current_user %>
+            <%= link_to "Obtenir pour 1 crédit", get_episode_url(episode) , method: :post, class: "btn btn-primary mt-3 ms-2" %>
+        <% else %>
+            <%= link_to "0,00 € avec l'offre d'essai", checkout_membership_path, class: "btn btn-primary mt-3 ms-2" %>
+        <% end %>
+    <% end %>
+    <% if current_user && current_user.admin? %>
+        <%= link_to "Modifier", edit_episode_path(episode), class: "btn btn-outline-secondary mt-3 ms-2" %>
+        <%= link_to "Supprimer", episode_path(episode), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet épisode?" }, class: "btn btn-danger mt-3 ms-2" %>
+    <% end %>
+</div>
