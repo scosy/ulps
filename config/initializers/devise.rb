@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = '"Support ULPS 📚" <support@ulps.fr>'
+  config.mailer_sender = '"Support ulps.fr 📚" <support@ulps.fr>'
 
   # Configure the class responsible to send e-mails.
   config.mailer = 'UserMailer'

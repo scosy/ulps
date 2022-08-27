@@ -1,6 +1,10 @@
 <% if current_user %>
-    <%= link_to "Voir le catalogue", episodes_path, class: "btn btn-outline-secondary me-2" %>
-    <%= link_to "Mes épisodes", user_episodes_path, class: "btn btn-outline-secondary me-2" %>
+    <%= link_to "Voir le catalogue", episodes_path, class: "btn btn-outline-secondary me-2 d-none d-lg-inline-block" %>
+    <%= link_to "Mes épisodes", user_episodes_path, class: "btn btn-outline-secondary me-2 d-none d-lg-inline-block" %>
+
+    <%= link_to "Voir le catalogue", episodes_path, class: "btn btn-outline-light me-2 d-inline-block d-lg-none" %>
+    <%= link_to "Mes épisodes", user_episodes_path, class: "btn btn-outline-light me-2 d-inline-block d-lg-none" %>
+    
     <% if current_user.subscribed? %>
         <% if current_user.available_credits == 0 %>
             <%= link_to "Obtenir des crédits", checkouts_path, class: "btn btn-primary" %>

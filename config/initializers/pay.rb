@@ -3,7 +3,7 @@ Pay.setup do |config|
   config.business_name = "ULPS"
   config.business_address = "Les Gachots, 77510 Verdelot, France"
   config.application_name = "ULPS"
-  config.support_email = '"Support ULPS 📚" <support@ulps.fr>'
+  config.support_email = '"Support ulps.fr 📚" <support@ulps.fr>'
 
   config.default_product_name = "default"
   config.default_plan_name = "default"
