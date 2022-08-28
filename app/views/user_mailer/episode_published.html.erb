@@ -1,0 +1,12 @@
+<p>Hello !</p>
+
+<p>Une simple notification pour te dire qu'un nouvel épisode est disponible sur Ulps.fr 📚 !</p>
+<p>
+    L'épisode parle de <%= @episode.book.title %>, écrit par <%= @episode.book.author %>.
+</p>
+
+<%= link_to "Voir le nouvel épisode maintenant", episode_url(@episode) %>
+
+<p>À bientôt,</p>
+
+<p>Ulps.fr 📚</p>

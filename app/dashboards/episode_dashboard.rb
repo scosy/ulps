@@ -20,6 +20,7 @@ class EpisodeDashboard < Administrate::BaseDashboard
     preview_url: Field::String,
     price: Field::Number,
     published_at: Field::DateTime,
+    publication_date: Field::DateTime,
     state: Field::String,
     title: Field::String,
     user_episodes: Field::HasMany,
@@ -54,6 +55,7 @@ class EpisodeDashboard < Administrate::BaseDashboard
     preview_url
     price
     published_at
+    publication_date
     state
     title
     user_episodes
@@ -77,6 +79,7 @@ class EpisodeDashboard < Administrate::BaseDashboard
     preview_url
     price
     published_at
+    publication_date
     state
     title
     user_episodes

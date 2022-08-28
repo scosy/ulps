@@ -15,6 +15,13 @@ class UserMailer < Devise::Mailer
         mail(to: @user.email, subject: "Votre épisode sur #{@episode.book.title}")
     end
 
+    # Send email when an episode is published
+    def episode_published(episode, user)
+        @episode = episode
+        @user = user
+        mail(to: @user.email, subject: "Nouvel épisode en ligne sur ULPS 📚")
+    end
+
     # Send email when credits are added
     def credits_added(user, credits)
         @user = user

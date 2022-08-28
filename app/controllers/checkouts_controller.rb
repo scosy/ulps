@@ -6,7 +6,7 @@ class CheckoutsController < ApplicationController
 
     def membership
         if current_user.subscribed?
-            redirect_to root_path
+            redirect_to root_path, alert: "Vous êtes déjà abonné à ULPS"
         else
             @checkout_session = current_user.payment_processor.checkout(
                 mode: "subscription",
