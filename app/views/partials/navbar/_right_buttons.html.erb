@@ -8,13 +8,11 @@
     <% if current_user.admin? %>
         <%= link_to "Administration", admin_root_path, class: "btn btn-outline-danger me-2 d-none d-lg-inline-block" %>
     <% end %>
-    
-    <% if current_user.subscribed? %>
-        <% if current_user.available_credits == 0 %>
-            <%= link_to "Obtenir des crédits", checkouts_path, class: "btn btn-primary" %>
-        <% end %>
-    <% else %>
+
+    <% if proper_global_cta == "start_trial" %>
         <%= link_to "30 jours d'essai gratuit", checkout_membership_path, class: "btn btn-primary" %>
+    <% elsif proper_global_cta == "get_credits" %>
+        <%= link_to "Obtenir des crédits", checkouts_path, class: "btn btn-primary" %>
     <% end %>
 <% else %>
     <%= link_to "Connexion", new_user_session_path, class: "btn btn-outline-secondary me-2" %>

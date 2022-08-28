@@ -1,16 +1,17 @@
 <div class="episode-index-buttons">
-    <% if episode.users.include?(current_user) %>
-        <%= link_to "Accéder à l'épisode", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
-    <% else %>
+    <% if user_ability_with(episode) == "start_trial" %>
         <%= link_to "En savoir plus", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
-        <% if current_user %>
-            <%= link_to "Obtenir pour 1 crédit", get_episode_url(episode) , method: :post, class: "btn btn-primary mt-3 ms-2" %>
-        <% else %>
-            <%= link_to "0,00 € avec l'offre d'essai", checkout_membership_path, class: "btn btn-primary mt-3 ms-2" %>
-        <% end %>
+        <%= link_to "0,00 € avec l'offre d'essai", checkout_membership_path, class: "btn btn-primary mt-3 ms-2" %>
+    <% elsif user_ability_with(episode) == "see_episode" %>
+        <%= link_to "Accéder à l'épisode", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
+    <% elsif user_ability_with(episode) == "get_credits" %>
+        <%= link_to "En savoir plus", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
+        <%= link_to "Obtenir de nouveaux crédits", checkouts_path, method: :get, class: "btn btn-primary mt-3 ms-2" %>
+    <% elsif user_ability_with(episode) == "buy_episode" %>
+        <%= link_to "En savoir plus", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
+        <%= link_to "Obtenir pour 1 crédit", get_episode_url(episode) , method: :post, class: "btn btn-primary mt-3 ms-2" %>
     <% end %>
     <% if current_user && current_user.admin? %>
         <%= link_to "Modifier", edit_episode_path(episode), class: "btn btn-outline-secondary mt-3 ms-2" %>
-        <%= link_to "Supprimer", episode_path(episode), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet épisode?" }, class: "btn btn-danger mt-3 ms-2" %>
     <% end %>
 </div>

@@ -26,7 +26,7 @@ class EpisodeDashboard < Administrate::BaseDashboard
     user_episodes: Field::HasMany,
     users: Field::HasMany,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

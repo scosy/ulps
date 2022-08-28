@@ -16,4 +16,26 @@ module ApplicationHelper
             when "alert" then "alert alert-warning"
         end
     end
+
+    def user_ability_with(episode)
+        return "start_trial" if !current_user
+
+        has_episode = current_user.episodes.include?(episode)
+        has_credits = current_user.available_credits > 0
+
+        return "see_episode" if has_episode
+        return "start_trial" if !current_user.subscribed?
+        return "get_credits" if !has_credits && !has_episode
+        return "buy_episode" if has_credits && !has_episode
+    end
+
+    def proper_global_cta
+        return "start_trial" if !current_user
+
+        has_credits = current_user.available_credits > 0
+
+        return "start_trial" if !current_user.subscribed?
+        return "none" if has_credits
+        return "get_credits" if !has_credits
+    end
 end
