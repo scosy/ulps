@@ -2,13 +2,15 @@ namespace :stripe_update_subscriptions do
     desc 'Update subscriptions'
 
     task 'early_members' => :environment do
-        # Update subscriptions for early members
+        price_id = "price_1LcPosIuO31KnPvm7rZo2BbZ"
+        
         User.where(role: 'early_member').each do |user|
             puts "Updating #{user.email}..."
-            Stripe::Subscription.list(customer: user.processor_id, limit: 1).each do |stripe_sub|
+            Stripe::Subscription.list(customer: user.payment_processor.processor_id, limit: 1).each do |stripe_sub|
+                old_sub_item = Stripe::SubscriptionItem.list(subscription: stripe_sub.id).first
                 Stripe::Subscription.update(stripe_sub.id, {
                     items: [{
-                        id: stripe_sub.items.first.id,
+                        id: old_sub_item.id,
                         deleted: true
                     }, {
                         price: price_id,
@@ -16,6 +18,25 @@ namespace :stripe_update_subscriptions do
                     }]
                 })
             end
+        end
+    end
+
+    task 'early_member' => :environment do
+        price_id = "price_1LcPosIuO31KnPvm7rZo2BbZ"
+
+        user = User.find_by(email: ARGV[1])
+        puts "Updating #{user.email}..."
+        Stripe::Subscription.list(customer: user.payment_processor.processor_id, limit: 1).each do |stripe_sub|
+            old_sub_item = Stripe::SubscriptionItem.list(subscription: stripe_sub.id).first
+            Stripe::Subscription.update(stripe_sub.id, {
+                items: [{
+                    id: old_sub_item.id,
+                    deleted: true
+                }, {
+                    price: price_id,
+                    quantity: 1
+                }]
+            })
         end
     end
 
