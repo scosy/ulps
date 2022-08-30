@@ -67,16 +67,10 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     available_credits
-    avatar_url
-    email
-    encrypted_password
     episodes
     filled_orders
     name
     provider
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
     role
     uid
     user_episodes

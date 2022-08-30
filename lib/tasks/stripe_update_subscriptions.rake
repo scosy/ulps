@@ -1,6 +1,24 @@
 namespace :stripe_update_subscriptions do
     desc 'Update subscriptions'
 
+    task 'early_members' => :environment do
+        # Update subscriptions for early members
+        User.where(role: 'early_member').each do |user|
+            puts "Updating #{user.email}..."
+            Stripe::Subscription.list(customer: user.processor_id, limit: 1).each do |stripe_sub|
+                Stripe::Subscription.update(stripe_sub.id, {
+                    items: [{
+                        id: stripe_sub.items.first.id,
+                        deleted: true
+                    }, {
+                        price: price_id,
+                        quantity: 1
+                    }]
+                })
+            end
+        end
+    end
+
     task :run => :environment do
         i = 0
 
