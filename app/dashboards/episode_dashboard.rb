@@ -70,7 +70,6 @@ class EpisodeDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     affiliate_link
     book
-    categories
     creator_id
     duration
     edito

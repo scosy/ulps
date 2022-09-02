@@ -2,7 +2,7 @@ class UserEpisode < ApplicationRecord
     belongs_to :user
     belongs_to :episode
 
-    validates :user_id, uniqueness: { scope: :episode_id }
+    validates_uniqueness_of :user_id, scope: :episode_id
 
     after_create :notify_user
 

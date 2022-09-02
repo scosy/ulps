@@ -8,7 +8,7 @@ class Episode < ApplicationRecord
 
     rating
 
-    validates_presence_of :book_id, :state, :published_at, :duration, :mp3_url, :preview_url, :affiliate_link, :price, :edito, :notes
+    validates_presence_of :book_id, :state, :published_at, :duration, :mp3_url, :preview_url, :affiliate_link, :price, :edito, :notes, if: :state_is_ready
     validates_uniqueness_of :book_id, :mp3_url, :preview_url, :affiliate_link
 
     # Planifiate the episode to be published after save
