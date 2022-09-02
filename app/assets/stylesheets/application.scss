@@ -57,6 +57,10 @@ $light: #dfdfdf;
 	transition: .1s ease-in-out;
 }
 
+.border-grey {
+    border: 1px solid #cccccc;
+}
+
 .link-episode-image:hover img {
     opacity: .8;
 }

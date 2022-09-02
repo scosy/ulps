@@ -12,7 +12,7 @@
         <div class="row pt-4">
             <div class="col-sm-12 col-lg-3 ms-auto">
                 <div class="mb-4" style="width: fit-content; margin-left:auto; margin-right:auto">
-                <%= image_tag @episode.book.image_url, class: "img-fluid rounded-3 mb-3", width: "232px" %>
+                <%= image_tag @episode.book.image_url, class: "img-fluid rounded-3 mb-3 border-grey", width: "232px" %>
                 <div class="d-grid gap-2">
                     <%= link_to "▶ Extrait", "#", onclick: "document.querySelector('#extract_player').style.display = 'block'; this.style.display = 'none'; return false;", class: "btn btn-light" %>
                     <div id="extract_player" style="display: none;">
