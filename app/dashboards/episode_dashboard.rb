@@ -68,21 +68,16 @@ class EpisodeDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    affiliate_link
     book
-    creator_id
-    duration
-    edito
-    mp3_url
-    notes
-    preview_url
-    price
-    published_at
-    publication_date
     state
-    title
-    user_episodes
-    users
+    publication_date
+    duration
+    mp3_url
+    preview_url
+    edito
+    notes
+    price
+    affiliate_link
   ].freeze
 
   # COLLECTION_FILTERS
