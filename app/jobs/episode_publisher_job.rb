@@ -3,7 +3,7 @@ class EpisodePublisherJob < ApplicationJob
 
   def perform(*args)
     episode = args[0]
-    episode.update(state: "published")
+    episode.update(state: "published", published_at: Time.now)
     episode.notify_members
   end
 end
