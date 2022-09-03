@@ -35,3 +35,4 @@
 dump.rdb
 .DS_Store
 .byebug_history
+coverage
