@@ -1,4 +1,6 @@
-# README
+[![Ruby on Rails CI](https://github.com/hgueguen/ulps/actions/workflows/rubyonrails.yml/badge.svg?branch=main)](https://github.com/hgueguen/ulps/actions/workflows/rubyonrails.yml)
+
+# ULPS
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

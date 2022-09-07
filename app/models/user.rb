@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -7,19 +9,18 @@ class User < ApplicationRecord
 
   has_many :user_episodes, dependent: :destroy
   has_many :episodes, through: :user_episodes
-  has_many :filled_orders
+  has_many :filled_orders, dependent: :destroy
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
     if user.nil?
-      user = self.create(email: auth.info.email, password: Devise.friendly_token[0,20], provider: auth.provider, uid: auth.uid, name: auth.info.name)
+      user = create(email: auth.info.email, password: Devise.friendly_token[0, 20], provider: auth.provider,
+                    uid: auth.uid, name: auth.info.name)
     end
     user
   end
 
-  def subscribed?
-    payment_processor.subscribed?
-  end
+  delegate :subscribed?, to: :payment_processor
 
   def admin?
     role == 'admin'
@@ -34,12 +35,11 @@ class User < ApplicationRecord
   end
 
   def add_credits(credits)
-    self.update(available_credits: self.available_credits + credits)
-    self.send_credits_added(credits)
+    update(available_credits: available_credits + credits)
+    send_credits_added(credits)
   end
 
   def episode_obtained(episode)
     UserMailer.episode_obtained(self, episode).deliver_later
   end
-    
 end

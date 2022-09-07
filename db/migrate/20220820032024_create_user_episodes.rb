@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateUserEpisodes < ActiveRecord::Migration[7.0]
   def change
     create_table :user_episodes do |t|
