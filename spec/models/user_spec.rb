@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -15,7 +17,6 @@ RSpec.describe User, type: :model do
       expect(User.new(email: 'test@ulps.fr', password: 'password', password_confirmation: 'password')).to be_valid
     end
   end
-
 
   # Test role methods
   context 'role methods' do
@@ -66,5 +67,4 @@ RSpec.describe User, type: :model do
       expect(@user.add_credits(10)).to be_truthy
     end
   end
-
 end

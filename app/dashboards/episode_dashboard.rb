@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class EpisodeDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -96,6 +98,6 @@ class EpisodeDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(episode)
-    "#{episode.book.title}"
+    episode.book.title.to_s
   end
 end
