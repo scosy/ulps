@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :user_episodes, dependent: :destroy
   has_many :episodes, through: :user_episodes
-  has_many :filled_orders
+  has_many :filled_orders, dependent: :destroy
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

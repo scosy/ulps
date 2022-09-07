@@ -5,23 +5,27 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'before save' do
     it 'is not valid with blank email' do
-      expect(User.new(email: '')).to_not be_valid
+      expect(described_class.new(email: '')).not_to be_valid
     end
+
     it 'is not valid with blank password' do
-      expect(User.new(password: '')).to_not be_valid
+      expect(described_class.new(password: '')).not_to be_valid
     end
+
     it 'is not valid with blank password confirmation' do
-      expect(User.new(password_confirmation: '')).to_not be_valid
+      expect(described_class.new(password_confirmation: '')).not_to be_valid
     end
+
     it 'is valid with valid email and password' do
-      expect(User.new(email: 'test@ulps.fr', password: 'password', password_confirmation: 'password')).to be_valid
+      expect(described_class.new(email: 'test@ulps.fr', password: 'password',
+                                 password_confirmation: 'password')).to be_valid
     end
   end
 
   # Test role methods
   context 'role methods' do
-    before(:each) do
-      @user = User.new(email: 'test@ulps.fr', password: 'password')
+    before do
+      @user = described_class.new(email: 'test@ulps.fr', password: 'password')
       @user.save
     end
 
@@ -32,8 +36,8 @@ RSpec.describe User, type: :model do
 
   # Test mailer methods
   context 'mailer methods' do
-    before(:each) do
-      @user = User.new(email: 'test@ulps.fr', password: 'password')
+    before do
+      @user = described_class.new(email: 'test@ulps.fr', password: 'password')
       @user.save
     end
 
@@ -54,8 +58,8 @@ RSpec.describe User, type: :model do
 
   # Test payment processor methods
   context 'payment processor methods' do
-    before(:each) do
-      @user = User.new(email: 'test@ulps.fr', password: 'password')
+    before do
+      @user = described_class.new(email: 'test@ulps.fr', password: 'password')
       @user.save
     end
 

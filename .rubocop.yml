@@ -1,0 +1,32 @@
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'spec/**/*'
+    - 'lib/tasks/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Style/HashLikeCase:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+Rails/OutputSafety:
+  Enabled: false

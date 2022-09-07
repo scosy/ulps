@@ -45,6 +45,7 @@ gem 'brakeman'
 gem 'bundler-audit'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]

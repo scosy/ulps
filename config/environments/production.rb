@@ -104,7 +104,7 @@ Rails.application.configure do
     domain: 'ulps.fr',
     authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: ENV['MAILER_USERNAME'],
-    password: ENV['MAILER_PASSWORD']
+    user_name: ENV.fetch('MAILER_USERNAME', nil),
+    password: ENV.fetch('MAILER_PASSWORD', nil)
   }
 end

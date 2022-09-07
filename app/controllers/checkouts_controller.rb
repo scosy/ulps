@@ -11,7 +11,7 @@ class CheckoutsController < ApplicationController
     else
       @checkout_session = current_user.payment_processor.checkout(
         mode: 'subscription',
-        line_items: ENV['STRIPE_MEMBERSHIP_PRICE_ID'],
+        line_items: ENV.fetch('STRIPE_MEMBERSHIP_PRICE_ID', nil),
         subscription_data: {
           trial_period_days: 30
         },
@@ -24,7 +24,7 @@ class CheckoutsController < ApplicationController
   def extra_credit
     @checkout_session = current_user.payment_processor.checkout(
       mode: 'payment',
-      line_items: ENV['STRIPE_EXTRA_CREDIT_PRICE_ID'],
+      line_items: ENV.fetch('STRIPE_EXTRA_CREDIT_PRICE_ID', nil),
       success_url: checkout_extra_credit_success_url,
       cancel_url: checkout_extra_credit_url
     )
@@ -33,7 +33,7 @@ class CheckoutsController < ApplicationController
   def pack_credits
     @checkout_session = current_user.payment_processor.checkout(
       mode: 'payment',
-      line_items: ENV['STRIPE_PACK_CREDITS_PRICE_ID'],
+      line_items: ENV.fetch('STRIPE_PACK_CREDITS_PRICE_ID', nil),
       success_url: checkout_pack_credits_success_url,
       cancel_url: checkout_pack_credits_url
     )

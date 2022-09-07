@@ -30,7 +30,7 @@ Pay.setup do |config|
       if object.status == 'trialing'
         customer = Pay::Customer.find_by(processor_id: object.customer)
         if customer.nil?
-          Rails.logger.debug "ULPS ALERT - No Pay::Customer found for Susbcription #{object.id}"
+          Rails.logger.debug { "ULPS ALERT - No Pay::Customer found for Susbcription #{object.id}" }
         else
           user = customer.owner
           user.update(available_credits: 1)
@@ -47,7 +47,7 @@ Pay.setup do |config|
       if object.status == 'paid'
         customer = Pay::Customer.find_by(processor_id: object.customer)
         if customer.nil?
-          Rails.logger.debug "ULPS_ALERT - No Pay::Customer found for invoice #{object.id}"
+          Rails.logger.debug { "ULPS_ALERT - No Pay::Customer found for invoice #{object.id}" }
         else
           user = customer.owner
           user.update(available_credits: user.available_credits + 1)
