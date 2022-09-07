@@ -20,6 +20,8 @@ gem "devise-i18n-views"
 gem "devise-bootstrap-views"
 gem "devise_masquerade"
 
+gem "rails-i18n"
+
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
