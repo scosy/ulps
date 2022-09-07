@@ -21,8 +21,7 @@ class Episode < ApplicationRecord
   end
 
   def set_publication
-    # EpisodePublisherJob.set(wait_until: publication_date).perform_later(self)
-    EpisodePublisherJob.perform_later(self)
+    EpisodePublisherJob.set(wait_until: publication_date).perform_later(self)
     update(state: 'queuing')
   end
 
