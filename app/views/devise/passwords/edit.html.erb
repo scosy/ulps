@@ -10,10 +10,16 @@
               <span class="text-muted">ULPS</span>
               <h3 class="fw-bold mb-5"><%= t('.change_your_password') %></h3>
               <%= f.password_field :password, autofocus: true, class: 'form-control mb-2', placeholder: "Nouveau mot de passe" %>
+              <% if resource.errors[:password].present? %>
+                <p class="error_msg"><%= resource.errors[:password][0]%></p>
+              <% end %>
               <% if @minimum_password_length %>
                 <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
               <% end %>
               <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control mb-2', placeholder: "Confirmation du mot de passe" %>
+              <% if resource.errors[:password_confirmation].present? %>
+                <p class="error_msg"><%= resource.errors[:password_confirmation][0]%></p>
+              <% end %>
               <%= f.submit t('.change_my_password'), class: 'btn btn-primary py-2 w-100 mb-3' %>
             <% end %>
           </div>

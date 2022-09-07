@@ -6,6 +6,9 @@
   <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    <% if resource.errors[:email].present? %>
+      <p class="error_msg"><%= resource.errors[:email][0]%></p>
+    <% end %>
   </div>
 
   <div class="form-group">
