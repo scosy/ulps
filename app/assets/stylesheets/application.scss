@@ -148,3 +148,8 @@ fieldset, label { margin: 0; padding: 0; }
     &.sm { width: percentage((random(10) + 60) / 100); }
     &.xs { width: percentage((random(10) + 50) / 100); }
 }
+
+.field_with_errors input {
+  border-color: red;
+  background-color: #fff2f2;
+}

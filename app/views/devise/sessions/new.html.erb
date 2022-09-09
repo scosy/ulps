@@ -4,12 +4,21 @@
       <div class="col-12 col-lg-5 me-auto mb-5">
         <div>
           <div class="mx-auto text-center py-5">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
               <span class="text-muted">ULPS</span>
               <h3 class="fw-bold mb-5"><%= t('.sign_in') %></h3>
+
               <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control mb-2', placeholder: "Email" %>
+              <% if resource.errors[:email].present? %>
+                <p class="error_msg"><%= resource.errors[:email][0]%></p>
+              <% end %>
+
               <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control mb-2', placeholder: "Mot de passe" %>
-              <%= f.submit  t('.sign_in'), class: 'btn btn-primary py-2 w-100 mb-3' %>
+              <% if resource.errors[:password].present? %>
+                <p class="error_msg"><%= resource.errors[:password][0]%></p>
+              <% end %>
+
+              <%= f.submit t('.sign_in'), class: 'btn btn-primary py-2 w-100 mb-3' %>
             <% end %>
             <%= render 'devise/shared/links' %>
           </div>

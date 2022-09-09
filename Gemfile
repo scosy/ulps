@@ -22,9 +22,11 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'devise_masquerade'
 
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-rails_csrf_protection'
+gem "rails-i18n"
+
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-rails_csrf_protection"
 
 gem 'bootstrap'
 gem 'sassc-rails'
