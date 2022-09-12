@@ -33,8 +33,7 @@ Pay.setup do |config|
           Rails.logger.debug { "ULPS ALERT - No Pay::Customer found for Susbcription #{object.id}" }
         else
           user = customer.owner
-          user.update(available_credits: 1)
-          user.filled_orders.create(description: 'Started subscription : get 1 credit')
+          user.start_subscription
         end
       end
     end

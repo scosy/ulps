@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :episodes, through: :user_episodes
   has_many :filled_orders, dependent: :destroy
 
+  after_create :sib_add_to_list
+
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
     if user.nil?
@@ -41,5 +43,17 @@ class User < ApplicationRecord
 
   def episode_obtained(episode)
     UserMailer.episode_obtained(self, episode).deliver_later
+  end
+
+  def sib_add_to_list(*args)
+    list_id = args.any? ? 14 : 13
+
+    SendinblueAddToListJob.perform_later(self.email, list_id)
+  end
+  
+  def start_subscription
+    self.update(available_credits: 1)
+    self.filled_orders.create(description: 'Started subscription : get 1 credit')
+    self.sib_add_to_list("clients")
   end
 end
