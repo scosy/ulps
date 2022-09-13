@@ -13,10 +13,7 @@ class PublicController < ApplicationController
         reason: "Merci à l'école 42 de m'avoir ouvert les yeux sur mes possibilités" },
       { name: 'github', url: 'https://github.com', reason: 'Merci à GitHub pour tout ça' },
       { name: 'rails', url: 'https://rubyonrails.org', reason: 'Merci à Rails qui est devenu un très bon pote' },
-      { name: 'dougs', url: 'https://www.dougs.fr?r=ODwK1GYdji',
-        reason: "Merci à Dougs de m'aider à gérer ma compta facilement" },
       { name: 'amazon', url: 'https://amzn.to/3cc7Gye', reason: 'Merci à Amazon de remplir ma bibliothèque' },
-      { name: 'audiomeans', url: 'https://audiomeans.com', reason: "Merci à Audiomeans pour l'hébergement de mes tous mes audios." }
     ]
   end
 
