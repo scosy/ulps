@@ -55,47 +55,53 @@ episodes = [
     edito: "Ce livre m'a aidé à faire du travail en profondeur une priorité dans ma vie professionnelle.",
     mp3_url: 'https://audio.ausha.co/BN0R4f619n0y.mp3',
     preview_url: 'https://audio.ausha.co/yv7wRCq9mQNL.mp3',
-    affiliate_link: 'https://amzn.to/3RDGk48'
+    affiliate_link: 'https://amzn.to/3RDGk48',
+    price: 490
   }, {
     book: Book.find_by(title: 'La lecture rapide'),
     duration: (32 * 60),
     notes: 'This is my notes',
     edito: "Ce livre m'aide chaque jour à lire plus rapidement et à comprendre plus rapidement ce que je lis.",
-    mp3_url: 'https://audio.ausha.co/BN0R4f619n0y.mp3',
-    preview_url: 'https://audio.ausha.co/bVw1acJmYp0E.mp3',
-    affiliate_link: 'https://amzn.to/3RDGk48'
+    mp3_url: 'https://audio.ausha.co/BN0R4f619n0ya.mp3',
+    preview_url: 'https://audio.ausha.co/bVw1acJmYp0Ea.mp3',
+    affiliate_link: 'https://amzn.to/3RDGk48a',
+    price: 490
   }, {
     book: Book.find_by(title: 'La vérité sur ce qui nous motive'),
     duration: (41 * 60),
     notes: 'This is my notes',
     edito: "Ce livre m'a aidé à comprendre les piliers de ma motivation pour réussir à la maitriser.",
-    mp3_url: 'https://audio.ausha.co/BN0R4f619n0y.mp3',
-    preview_url: 'https://audio.ausha.co/B6Xj4sxqwPqQ.mp3',
-    affiliate_link: 'https://amzn.to/3RDGk48'
+    mp3_url: 'https://audio.ausha.co/BN0R4f619n0yb.mp3',
+    preview_url: 'https://audio.ausha.co/B6Xj4sxqwPqQb.mp3',
+    affiliate_link: 'https://amzn.to/3RDGk48b',
+    price: 490
   }, {
     book: Book.find_by(title: 'The war of art'),
     duration: (55 * 60),
     notes: 'This is my notes',
     edito: "Ce livre m'a fait découvrir que nous étions tous en guerre contre un ennemi intérieur puissant : la résistance.",
-    mp3_url: 'https://audio.ausha.co/BN0R4f619n0y.mp3',
-    preview_url: 'https://audio.ausha.co/yJ8M4u8rLWq4.mp3',
-    affiliate_link: 'https://amzn.to/3RDGk48'
+    mp3_url: 'https://audio.ausha.co/BN0R4f619n0yc.mp3',
+    preview_url: 'https://audio.ausha.co/yJ8M4u8rLWq4c.mp3',
+    affiliate_link: 'https://amzn.to/3RDGk48c',
+    price: 490
   }, {
     book: Book.find_by(title: 'Le plus étrange des secrets'),
     duration: (43 * 60),
     notes: 'This is my notes',
     edito: "Ce livre d'une efficacité et d'une simplicité étonnante m'a aidé à comprendre une loi essentielle de l'univers.",
-    mp3_url: 'https://audio.ausha.co/BN0R4f619n0y.mp3',
-    preview_url: 'https://audio.ausha.co/B1EJOFE0PV51.mp3',
-    affiliate_link: 'https://amzn.to/3RDGk48'
+    mp3_url: 'https://audio.ausha.co/BN0R4f619n0yd.mp3',
+    preview_url: 'https://audio.ausha.co/B1EJOFE0PV51d.mp3',
+    affiliate_link: 'https://amzn.to/3RDGk48d',
+    price: 490
   }, {
     book: Book.find_by(title: 'La physique de la conscience'),
     duration: (45 * 60),
     notes: 'This is my notes',
     edito: "Ce livre est l'un des plus intéressants que j'ai eu la chance de lire. On y découvre une théorie sur le sens même de la réalité.",
-    mp3_url: 'https://audio.ausha.co/BN0R4f619n0y.mp3',
-    preview_url: 'https://audio.ausha.co/oaR86hrZwxNL.mp3',
-    affiliate_link: 'https://amzn.to/3RDGk48'
+    mp3_url: 'https://audio.ausha.co/BN0R4f619n0ye.mp3',
+    preview_url: 'https://audio.ausha.co/oaR86hrZwxNLe.mp3',
+    affiliate_link: 'https://amzn.to/3RDGk48e',
+    price: 490
   }
 ].each do |episode|
   Episode.create(
@@ -105,9 +111,11 @@ episodes = [
     edito: episode[:edito],
     mp3_url: episode[:mp3_url],
     preview_url: episode[:preview_url],
-    affiliate_link: episode[:affiliate_link]
+    affiliate_link: episode[:affiliate_link],
+    price: episode[:price],
+    state: "published"
   )
+  puts "episode #{episode[:book].title} created"
 end
 
-# Give price to existing episodes
-Episode.all.each { |episode| episode.update(price: 490) }
+
