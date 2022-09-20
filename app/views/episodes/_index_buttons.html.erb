@@ -9,7 +9,7 @@
         <%= link_to "Obtenir de nouveaux crédits", checkouts_path, method: :get, class: "btn btn-primary mt-3 ms-2" %>
     <% elsif user_ability_with(episode) == "buy_episode" %>
         <%= link_to "En savoir plus", episode_path(episode), class: "btn btn-outline-secondary mt-3" %>
-        <%= link_to "Obtenir pour 1 crédit", get_episode_url(episode) , method: :post, class: "btn btn-primary mt-3 ms-2" %>
+        <%= link_to "Obtenir pour 1 crédit", get_episode_url(episode) , class: "btn btn-primary mt-3 ms-2", data: { turbo_method: :get, turbo_confirm: "Confirmer l'achat" } %>
     <% end %>
     <% if current_user && current_user.admin? %>
         <%= link_to "Modifier", edit_episode_path(episode), class: "btn btn-outline-secondary mt-3 ms-2" %>
