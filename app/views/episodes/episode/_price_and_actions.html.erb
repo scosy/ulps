@@ -4,7 +4,7 @@
         <% if user_ability_with(@episode) == "start_trial" %>
             <p>Prix: <%= price_str(@episode.price) %><br>ou 1 crédit ULPS</p>
             <%= link_to "0,00 € avec l'offre d'essai", get_episode_url(@episode) , method: :post, class: "btn btn-primary me-2 mb-2 mb-sm-0" %>
-            <p class="text-muted mt-2" style="font-size: small">4,90 €/mois après 30 jours. Résiliez quand vous voulez.</p>
+            <p class="text-muted mt-2" style="font-size: small">12,90 €/mois après 30 jours. Résiliez quand vous voulez.</p>
         <% elsif user_ability_with(@episode) == "see_episode" %>
             <p>Ajouté à vos épisodes le: <br><span class="text-muted"><%= @user_episode.created_at.strftime("%d/%m/%Y") %></span></p>
             <%= link_to "Écouter", "#", onclick: "document.querySelector('#audio_player').style.display = 'block'; this.style.display = 'none'; return false;", class: "btn btn-primary me-2 mb-2 mb-sm-0" %>
@@ -15,7 +15,7 @@
             <%= link_to "Obtenir de nouveaux crédits", checkouts_path, method: :get, class: "btn btn-primary me-2 mb-2 mb-sm-0" %>
         <% elsif user_ability_with(@episode) == "buy_episode" %>
             <p>Prix: <%= price_str(@episode.price) %><br>ou 1 crédit ULPS</p>
-            <%= link_to "Obtenir maintenant pour 1 crédit", get_episode_url(@episode) , method: :post, class: "btn btn-primary me-2 mb-2 mb-sm-0" %>
+            <%= link_to "Obtenir maintenant pour 1 crédit", get_episode_url(@episode) , class: "btn btn-primary me-2 mb-2 mb-sm-0", data: { turbo_method: :get, turbo_confirm: "Confirmer l'achat" } %>
         <% end %>
         <% if current_user && current_user.admin? %>
             <%= link_to "Modifier", edit_episode_path(@episode), class: "btn btn-outline-danger me-2 mb-2 mb-sm-0" %>

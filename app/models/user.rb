@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :episodes, through: :user_episodes
   has_many :filled_orders, dependent: :destroy
 
-  after_create :sib_add_to_list
+  after_create :sib_add_to_list unless Rails.env.test?
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

@@ -1,10 +1,12 @@
+<% provide(:title, sanitize("S'abonner")) %>
+
 <section class="py-5">
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-8 mx-auto text-center">
         <span class="text-muted" contenteditable="false">Rejoindre ULPS</span>
         <h2 class="display-5 fw-bold mt-2 mb-3" contenteditable="false">30 jours gratuit</h2>
-        <p class="lead text-muted mb-4" contenteditable="false">Puis 4,90€ / mois. Résiliable à tout moment.</p>
+        <p class="lead text-muted mb-4" contenteditable="false">Puis 12,90€ / mois. Résiliable à tout moment.</p>
         <div class="d-flex flex-wrap justify-content-center">
             <%= render partial: "pay/stripe/checkout_button", locals: { session: @checkout_session, title: "Profiter des 30 jours gratuit", class: "btn btn-primary me-2 mb-2 mb-sm-0" } %>
         </div>
